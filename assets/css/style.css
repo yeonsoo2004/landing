@@ -13,6 +13,11 @@
 .navi {
     gap: 50px;
 }
+.navi a{
+    font-size: 20px;
+    font-family: 'Pretendard';
+    font-weight: 300;
+}
 
 .gnb {
     gap: 50px;
@@ -42,7 +47,11 @@
     /* text-align: center; */
     margin-left: 244px;
 }
-
+.banner-main {
+    font-size: 92px;
+    font-family: 'Paperozi';
+    font-weight: 800;
+}
 .banner-mg {
     margin-top: 20px;
     margin-bottom: 70px;
@@ -315,17 +324,10 @@
 }
 
 .review-section {
-    --review-primary: #22C597;
-    --review-bg: #f2f5f8;
-    /* 배경 연한 색상 */
-    --review-white: #ffffff;
-    --review-text-dark: #222222;
-    --review-text-gray: #555555;
-
-    background-color: var(--review-bg);
+    background-color: #f2f5f8; 
     padding: 100px 0;
-    font-family: 'Pretendard', sans-serif;
-    color: var(--review-text-dark);
+    font-family: 'Pretendard';
+    color: #222222; 
 }
 
 .review-section * {
@@ -349,8 +351,8 @@
 .rating-score {
     justify-content: center;
     align-items: baseline;
+    margin-top: 10px;
 }
-
 
 .review-slider-wrapper {
     position: relative;
@@ -360,20 +362,20 @@
 
 .review-track {
     width: 100%;
-    height: 367px;
-    gap: 29px;
+    align-items: stretch; 
+    gap: 24px; 
 }
 
 .review-card {
     flex: 1;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 24px;
     padding: 50px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start; 
     min-height: 280px;
 }
 
@@ -390,20 +392,23 @@
 
 .review-text {
     margin-bottom: 40px;
-    /* 이름 태그를 하단으로 밀어냄 */
     word-break: keep-all;
+    line-height: 1.5;
+    color: #555555; 
 }
 
 .customer-info {
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background-color: #F4F4F4;
     padding: 8px 16px;
     border-radius: 10px;
+    margin-top: auto; 
 }
 
 .user-icon {
-    color: var(--review-primary);
+    color: #22C597; 
 }
 
 /* 좌우 네비게이션 버튼 */
@@ -623,7 +628,6 @@
 }
 
 .faq-title {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10px;
@@ -727,7 +731,6 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    display: flex;
     flex-direction: column;
     gap: 20px;
     /* 체크박스 항목들 사이의 간격 */
@@ -735,7 +738,6 @@
 
 /* 약관 동의 개별 항목 */
 .agree-item {
-    display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
@@ -761,45 +763,63 @@
 
 /* 푸터 전체 영역 */
 .footer {
-    /* 요청하신 여백 적용 (위아래 100px, 양옆 240px) */
     padding: 100px 240px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     background-color: #fff;
-    border-top: 1px solid #e5e5e5; /* 상단 구분선 (필요시 제거 가능) */
+    border-top: 1px solid #e5e5e5; 
     box-sizing: border-box;
+    width: 100%;
+    flex-direction: column;
+    gap: 40px; 
+}
+
+/* 상단, 하단 공통 양끝 정렬 */
+.footer-top, 
+.footer-bottom {
+    justify-content: space-between;
     width: 100%;
 }
 
-
-/* 구분선 (|) */
-.divider {
-    margin: 0 8px;
+/* --- 상단 텍스트 영역 --- */
+.footer-top {
+    align-items: flex-start; /* 텍스트는 위쪽 라인에 맞춤 */
+    margin-bottom: 30px;
 }
 
-/* --- 왼쪽 영역 스타일 --- */
-.footer-left {
+.footer-left-text {
+    display: flex; /* gap 적용을 위해 추가 */
     flex-direction: column;
-    gap: 20px; 
+    gap: 10px; /* 간격 통일 (기존 20px -> 10px) */
 }
 
-.footer-links {
+.footer-links, .footer-contact {
     align-items: center;
 }
 
-.footer-contact {
-    align-items: center;
+.company-info {
+    text-align: right;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 10px; 
 }
 
-.footer-contact .spacer {
-    margin-right: 30px; /* '이벤트'와 '제휴문의' 사이의 넓은 간격 */
+.company-info p {
+    margin: 0;
+    display: flex; /* 내부 요소 수직 중앙 정렬 */
+    align-items: center;
+
+}
+
+.company-info .copyright {
+    margin-top: 10px;
+}
+
+/* --- 하단 아이콘/뱃지 영역 --- */
+.footer-bottom {
+    align-items: flex-end; /* 아이콘과 뱃지의 바닥 라인을 완벽하게 맞춤 */
 }
 
 .footer-sns {
-    display: flex;
-    gap: 20px; /* 아이콘 사이 간격 */
-    margin-top: 10px;
+    gap: 20px;
 }
 
 .footer-sns img {
@@ -807,33 +827,12 @@
     height: 55px;
 }
 
-
-/* --- 오른쪽 영역 스타일 --- */
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* 우측 정렬 */
-    text-align: right;
-    gap: 25px;
-}
-
-.company-info p {
-    margin: 0 0 5px 0; 
-}
-
-.company-info .copyright {
-    margin-top: 10px;
-}
-
-/* 인증마크 전체 묶음 */
 .footer-badges {
-    display: flex;
     gap: 30px; 
 }
 
-/* 개별 인증마크 세트 (이미지 + 텍스트) */
 .badge-item {
-    display: flex;
+    /* display: flex; */
     align-items: center; 
     gap: 10px;
     text-align: left; 
@@ -842,5 +841,15 @@
 .badge-item img {
     height: 50px; 
     width: auto;
+}
+
+/* 기타 공통 속성 */
+.divider {
+    margin: 0 8px;
+    vertical-align: middle;
+}
+
+.spacer {
+    margin-right: 30px;
 }
 
