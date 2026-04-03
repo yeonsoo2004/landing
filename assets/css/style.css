@@ -7,6 +7,7 @@ html {
     overflow-x: hidden; 
     width: 100%;
     position: relative;
+    padding-top: 80px;
 }
 .nav {
     justify-content: space-between;
@@ -17,7 +18,16 @@ html {
     box-sizing: border-box;
     margin: auto;
 }
-
+.header_wrap {
+    position: fixed; /* 화면 상단에 단단히 고정시킵니다 */
+    top: 0;          /* 화면의 맨 위(0px)에 위치 */
+    left: 0;         /* 화면의 맨 왼쪽(0px)에 위치 */
+    width: 100%;     /* fixed를 사용하면 너비가 쪼그라들 수 있으므로 100% 필수 */
+    z-index: 999;    /* 다른 요소들(이미지, 텍스트 등)보다 무조건 맨 위에 보이도록 설정 */
+    background-color: #ffffff; /* 스크롤할 때 뒤에 있는 내용이 비치지 않도록 배경색 필수! */
+    
+    /* 기존에 있던 패딩이나 테두리(border) 속성이 있다면 그대로 유지하시면 됩니다 */
+}
 .navi {
     gap: 50px;
 }
