@@ -1,5 +1,13 @@
 @import url('common.css');
-
+html {
+    scroll-behavior: smooth; /* 이 한 줄이면 스르륵 내려가는 애니메이션이 적용됩니다! */
+}
+/* 전체 콘텐츠를 감싸는 래퍼 */
+.wrap {
+    overflow-x: hidden; 
+    width: 100%;
+    position: relative;
+}
 .nav {
     justify-content: space-between;
     align-items: center;
@@ -55,6 +63,11 @@
 .banner-mg {
     margin-top: 20px;
     margin-bottom: 70px;
+}
+a.btn-bgColor { /* 기존에 쓰시던 클래스 이름 */
+    display: inline-block; /* button처럼 가로세로 크기와 여백(padding)을 가질 수 있게 해줍니다 */
+    text-decoration: none; 
+    text-align: center; 
 }
 
 .about-main-txt {
