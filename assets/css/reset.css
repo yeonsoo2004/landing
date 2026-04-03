@@ -1,0 +1,60 @@
+/* reset.css */
+
+/* 모든 요소 기본 제거 */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html, body 기본 설정 */
+html, body {
+    height: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* 리스트 스타일 제거 */
+ul, ol {
+    list-style: none;
+}
+
+/* 링크 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 이미지 기본 설정 */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* 버튼 스타일 초기화 */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* input 기본 스타일 제거 */
+input, textarea, select {
+    font: inherit;
+    outline: none;
+    border: none;
+}
+
+/* table 초기화 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* heading 태그 초기화 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: normal;
+}

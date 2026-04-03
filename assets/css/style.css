@@ -1,0 +1,846 @@
+@import url('common.css');
+
+.nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    max-width: 1440px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.navi {
+    gap: 50px;
+}
+
+.gnb {
+    gap: 50px;
+    align-items: center;
+}
+
+.direct_btn {
+    padding: 10px;
+    background-color: #22C597;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.kv {
+    height: 788px;
+    background-image: url('../images/kv.webp');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom right;
+}
+
+.kv--section {
+    height: 100%;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* text-align: center; */
+    margin-left: 244px;
+}
+
+.banner-mg {
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.about-main-txt {
+    text-align: center;
+}
+
+.about-cards {
+    margin-top: 50px;
+    justify-content: space-between;
+    gap: 24px;
+    margin: auto;
+}
+
+/* 카드 */
+.card {
+    width: 464px;
+    height: 530px;
+    background: #EFF4F8;
+    border-radius: 24px;
+    padding: 0 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 카드 타이틀 */
+.card-title {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-sub {
+    text-align: center;
+}
+
+/* 이미지 */
+.card img {
+    height: 200px;
+    /* width: auto; */
+}
+
+.about-mg-40 {
+    margin-bottom: 40px;
+}
+
+.about-mg-60 {
+    margin-bottom: 60px;
+}
+
+.about-mg-30 {
+    margin-bottom: 30px;
+}
+
+/* 슬라이드 */
+.promise-section {
+    --promise-primary: #22C597;
+    --promise-bg: #C2F6E4;
+    --promise-text-dark: #222222;
+    --promise-text-gray: #555555;
+    --promise-white: #ffffff;
+
+    color: var(--promise-text-dark);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.promise-section * {
+    box-sizing: border-box;
+}
+
+.section-header h2 {
+    line-height: 1.4;
+    margin-bottom: 50px;
+}
+
+.section-header .highlight {
+    color: var(--promise-primary);
+}
+
+/* 슬라이더*/
+.slider-wrapper {
+    position: relative;
+    width: 100%; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.slider-track {
+    gap: 100px; 
+    justify-content: center; 
+    align-items: center;
+}
+
+/* 개별 슬라이드 설정 */
+.slide {
+    width: 1440px;  
+    flex-shrink: 0; 
+    height: 508px;
+    background-color: var(--promise-bg);
+    border-radius: 30px;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px; 
+}
+
+.side-slide {
+    opacity: 0.6;
+}
+
+/* 내부 텍스트 영역 */
+.text-area {
+    text-align: center;
+    /* flex: 1; */
+}
+
+/* 내부 뱃지(혜택) 영역 */
+.badge-area {
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    align-items: flex-end;
+}
+
+.benefit-badge {
+    background-color:#fff;
+    border-radius: 40px;
+    padding: 16px 32px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 85%;
+    max-width: 420px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.highlight-badge {
+    background-color:#22C597;
+    color: #fff;
+}
+
+/* 페이지네이션 */
+.pagination {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: var(--promise-primary);
+}
+
+/* 좌우 네비게이션 화살표 버튼 */
+.promise-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--promise-primary);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.promise-arrow-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.promise-arrow-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.arrow-prev {
+    left: max(20px, calc(50% - 750px)); 
+}
+
+.arrow-next {
+    right: max(20px, calc(50% - 750px));
+}
+
+.section02 {
+    margin: 0 auto;
+}
+
+.sec02-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Card Box Area */
+.benefit-list {
+    gap: 24px;
+    /* 박스 간격 */
+}
+
+.benefit-card {
+    width: 464px;
+    height: 530px;
+    border-radius: 55px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.card-tving {
+    background-color: rgba(255, 21, 60, 0.2);
+    /* #FF153C 20% */
+}
+
+.card-npay {
+    background-color: rgba(1, 222, 91, 0.15);
+    /* #01DE5B 15% */
+}
+
+.card-starbucks {
+    background-color: rgba(0, 112, 74, 0.2);
+    /* #00704A 20% */
+}
+
+/* 로고 이미지 영역 */
+.card-logo {
+    margin-bottom: 55px;
+}
+
+.card-logo img {
+    display: block;
+    max-height: 100px;
+    width: auto;
+}
+
+/* 텍스트 영역 */
+.card-text-group {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tving-color {
+    color: #FF153C;
+}
+
+.naver-color {
+    color: #01DE5B;
+}
+
+.star-color {
+    color: #00704A;
+}
+
+.review-section {
+    --review-primary: #22C597;
+    --review-bg: #f2f5f8;
+    /* 배경 연한 색상 */
+    --review-white: #ffffff;
+    --review-text-dark: #222222;
+    --review-text-gray: #555555;
+
+    background-color: var(--review-bg);
+    padding: 100px 0;
+    font-family: 'Pretendard', sans-serif;
+    color: var(--review-text-dark);
+}
+
+.review-section * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.review-inner {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 상단 헤더 및 평점 */
+.review-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.rating-score {
+    justify-content: center;
+    align-items: baseline;
+}
+
+
+.review-slider-wrapper {
+    position: relative;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.review-track {
+    width: 100%;
+    height: 367px;
+    gap: 29px;
+}
+
+.review-card {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+/* 카드 내부 요소 */
+.stars {
+    gap: 4px;
+    margin-bottom: 25px;
+}
+
+.star-icon {
+    width: 45.5px;
+    height: 43.32px;
+}
+
+.review-text {
+    margin-bottom: 40px;
+    /* 이름 태그를 하단으로 밀어냄 */
+    word-break: keep-all;
+}
+
+.customer-info {
+    align-items: center;
+    gap: 10px;
+    background-color: #F4F4F4;
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+
+.user-icon {
+    color: var(--review-primary);
+}
+
+/* 좌우 네비게이션 버튼 */
+/* .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+
+    border: 1px solid var(--review-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-btn img {
+    width: 22px;
+    height: 22px;
+}
+
+.prev-btn {
+    left: -27px;
+}
+
+.next-btn {
+    right: -27px;
+} */
+
+.font-92 {
+    font-size: 92px;
+    font-weight: 800;
+}
+
+/* Layout */
+.section04 {
+    position: relative;
+    margin: 0 auto;
+    background: url('../images/sec04-bg.png') no-repeat center/cover;
+    background-color: #FAFAFA;
+    overflow: hidden;
+}
+
+.inner-container {
+    position: relative;
+    width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Title Area */
+.title-area {
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 60px;
+    /* 이미지 비율에 맞춰 살짝 줄임 */
+}
+
+.sec04-desc {
+    margin-top: 20px;
+}
+
+.board-container {
+    justify-content: center;
+}
+
+.board-box {
+    width: 1440px;
+    height: 558px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(34, 197, 151, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.board-header {
+    background-color: #22C597;
+    padding: 24px 0;
+    text-align: center;
+}
+
+.board-header div {
+    color: #fff;
+}
+
+.board-list {
+    list-style: none;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.board-list li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    /* 필요하다면 리스트 사이에 연한 선을 추가할 수 있습니다 */
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.col {
+    flex: 1;
+    color: #191919;
+}
+
+/* 상태 버튼 스타일 (이미지와 동일하게 알약 모양으로 변경) */
+.status-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    width: 100px;
+    padding: 8px 0;
+    border-radius: 10px;
+}
+
+.status-complete {
+    background-color: #22C597;
+}
+
+/* 입금완료 */
+.status-waiting {
+    background-color: #B41D1D;
+}
+
+/* 입금대기 */
+
+
+.sec05-main {
+    position: relative;
+    /*  가상 요소의 위치 기준점 */
+    z-index: 0;
+    /* 배경이 내용물 위로 올라오지 않게 함 */
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 629px;
+    gap: 51px;
+}
+
+/* 배경 이미지를 위한 전용 가상 요소 레이어 생성 */
+.sec05-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../images/sec05-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.sec05-banner-box {
+    background-color: #fff;
+    padding: 30px 0;
+    width: 708px;
+    border-radius: 30px;
+}
+
+
+.section06 {
+    position: relative;
+    background-image: url('../images/sec06-bg.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    background-color: #fff;
+}
+
+.sec06-inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sec06-header {
+    text-align: center;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.faq-wrap {
+    border-top: 2px solid #20c997;
+    margin-bottom: 80px;
+}
+
+.faq-item {
+    border-bottom: 2px solid #20c997;
+}
+
+.faq-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.faq-title .arrow {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #20c997;
+    border-left: 2px solid #20c997;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.faq-content {
+    display: none;
+    padding: 20px 10px 30px 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.faq-item.active .faq-content {
+    display: block;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(225deg);
+}
+
+.sec06-footer {
+    text-align: center;
+}
+
+.sec06-footer .arrow-down {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-bottom: 2px solid #20c997;
+    border-right: 2px solid #20c997;
+    transform: rotate(45deg);
+    margin-top: 20px;
+}
+
+.mg-left-100 {
+    margin-left: 100px;
+}
+
+.cta-container {
+    gap: 90px;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F4;
+    padding: 100px 240px;
+}
+
+.cta-desc {
+    margin-bottom: 20px;
+}
+
+/* 전체 폼 배경 */
+.cta-right {
+    width: 100%;
+    max-width: 705px;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* 폼 요소들 사이 간격 */
+.form-group-container {
+    flex-direction: column;
+    gap: 28px;
+    /* 이름, 연락처, 동의박스 사이의 간격 */
+}
+
+/* 라벨과 입력창 세트 */
+.form-group {
+    flex-direction: column;
+    gap: 10px;
+    /* 라벨(이름/연락처)과 하얀색 입력창 사이의 간격 */
+}
+
+
+/* 입력창 (input) */
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    /* 이미지처럼 테두리 없이 깔끔하게 */
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+
+/* 약관 동의 하얀색 박스 */
+.agreement-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* 체크박스 항목들 사이의 간격 */
+}
+
+/* 약관 동의 개별 항목 */
+.agree-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* 체크박스 크기 조절 */
+.agree-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* 하단 노란색 제출 버튼 */
+.btn-submit {
+    width: 100%;
+    margin-top: 67px;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* 푸터 전체 영역 */
+.footer {
+    /* 요청하신 여백 적용 (위아래 100px, 양옆 240px) */
+    padding: 100px 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5; /* 상단 구분선 (필요시 제거 가능) */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+/* 구분선 (|) */
+.divider {
+    margin: 0 8px;
+}
+
+/* --- 왼쪽 영역 스타일 --- */
+.footer-left {
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.footer-links {
+    align-items: center;
+}
+
+.footer-contact {
+    align-items: center;
+}
+
+.footer-contact .spacer {
+    margin-right: 30px; /* '이벤트'와 '제휴문의' 사이의 넓은 간격 */
+}
+
+.footer-sns {
+    display: flex;
+    gap: 20px; /* 아이콘 사이 간격 */
+    margin-top: 10px;
+}
+
+.footer-sns img {
+    width: 55px;
+    height: 55px;
+}
+
+
+/* --- 오른쪽 영역 스타일 --- */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 우측 정렬 */
+    text-align: right;
+    gap: 25px;
+}
+
+.company-info p {
+    margin: 0 0 5px 0; 
+}
+
+.company-info .copyright {
+    margin-top: 10px;
+}
+
+/* 인증마크 전체 묶음 */
+.footer-badges {
+    display: flex;
+    gap: 30px; 
+}
+
+/* 개별 인증마크 세트 (이미지 + 텍스트) */
+.badge-item {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    text-align: left; 
+}
+
+.badge-item img {
+    height: 50px; 
+    width: auto;
+}
+

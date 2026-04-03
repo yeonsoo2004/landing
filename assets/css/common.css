@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+
+* {
+    font-family: 'Pretendard';
+    overflow-x: hidden;
+}
+
+.main-font-1 {
+    font-size: 48px;
+    font-family: 'Pretendard';
+    font-weight: 700;
+}
+
+.main-font-2{
+    font-size: 48px;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+
+.sub-font {
+    font-size: 32px;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+
+.ft-28 {
+    font-size: 28px;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+
+.body-font-1 {
+    font-size: 24px;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+
+.body-font-2 {
+    font-size: 24px;
+    font-family: 'Pretendard';
+    font-weight: 400;
+}
+
+.cap {
+    font-size: 20px;
+    font-family: 'Pretendard';
+    font-weight: 300;
+}
+.footer-ft {
+    font-size: 15px;
+    font-family: 'Pretendard';
+    font-weight: 400;
+}
+
+.main-color {
+    color: #121212;
+}
+.sub-color {
+    color: #191919;
+}
+
+.main-greenColor {
+    color: #22C597;
+}
+
+.point-redColor {
+    color: #B41D1D;
+}
+.btn-bgColor {
+    background-color: #FFE500;
+}
+
+.d-flex {
+    display: flex;
+}
+.mg-auto-1440 {
+    width: 1440px; 
+    margin: 0 auto;
+}
+.btn-pd {
+    padding: 20px 60px;
+}
+
+.btn-radius {
+    border-radius: 10px;
+}
+
+.font-color-w {
+    color: #fff;
+}
+
+.ft-500 {
+    font-weight: 500;
+}
+.mg-bottom-200 {
+    margin-bottom: 200px;
+}
+
+.mg-bottom-100 {
+    margin-bottom: 100px;
+}
+.mg-bottom-50 {
+    margin-bottom: 50px;
+}
+.mg-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.width-1440 {
+    width: 1440px;
+}
+
+.mg-tb-10 {
+        margin: 10px 0;
+    }
