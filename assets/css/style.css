@@ -47,6 +47,22 @@ html {
     background-color: #22C597;
     border-radius: 10px;
     gap: 20px;
+    position: relative;
+}
+.direct_btn::after {
+    content: "";
+    position: absolute;
+    border-radius: 10px;
+    background-color: gray;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: all 0.3s;
+    opacity: 0.2;
+}
+.direct_btn:hover::after {
+    width: 100%;
 }
 
 .kv {
@@ -876,3 +892,30 @@ a.btn-bgColor { /* 기존에 쓰시던 클래스 이름 */
     margin-right: 30px;
 }
 
+/* 플로팅 탑 버튼 */
+.top-btn {
+    position: fixed;
+    bottom: 40px; /* 화면 아래에서 40px 띄움 */
+    right: 40px;  /* 화면 오른쪽에서 40px 띄움 */
+    width: 60px;
+    height: 60px;
+    background-color: #22C597; /* 메인 브랜드 컬러 (필요시 변경) */
+    border-radius: 50%; /* 완전한 동그라미 모양 */
+    justify-content: center; /* d-flex와 함께 쓰여 중앙 정렬 */
+    align-items: center;
+    z-index: 1000; /* 다른 콘텐츠보다 항상 위에 보이도록 설정 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* 살짝 떠보이는 그림자 효과 */
+    transition: all 0.3s ease; /* 호버 시 부드러운 전환 효과 */
+    text-decoration: none;
+}
+
+/* 마우스를 올렸을 때 살짝 위로 올라가는 디테일 효과 */
+.top-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.top-btn img {
+    width: 40px;
+    height: 40px;
+}
