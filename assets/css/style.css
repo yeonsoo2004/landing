@@ -3,11 +3,8 @@ body {
     padding-top: 144px; 
 }
 
-body {
-    padding-top: 144px; 
-}
 /* =========================================
-   1. Header 상단 고정 및 기본 레이아웃 (PC)
+   Header
 ========================================= */
 .header_wrap {
     position: fixed;
@@ -99,37 +96,153 @@ body {
     background-color: #1aa67f;
 }
 
+/* 전체 배경 설정 */
 .kv {
-    background: url('../images/kv.webp') no-repeat center / cover;
-    background-color: #22C597;
+    background-color: #22C597; 
     height: 788px; 
     padding: 0 20px; 
     width: 100%;
     box-sizing: border-box;
+    overflow: hidden; /* 모델 이미지나 배경 효과가 영역 밖으로 나가는 것을 방지 */
 }
 
+/* 좌우 정렬을 위한 부모 컨테이너 */
 .kv--section {
     max-width: 1440px;
     height: 100%; 
     margin: 0 auto;
-    flex-direction: column; 
-    align-items: flex-start; 
-    justify-content: center; 
-    gap: 50px; 
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    
+    /* ✨ 추가: 코인들이 이 영역을 기준으로 배치되게 함 */
+    position: relative; 
 }
+
+.kv-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    
+    /* ✨ 추가: 코인이 글자나 버튼 위를 덮지 않고 뒤로 가도록 설정 */
+    position: relative;
+    z-index: 10; 
+}
+
 .kv-title {
     text-align: left; 
 }
 
+.kv-font {
+    font-size: 92px;
+    font-family: 'Paperozi';
+    font-weight: 800;
+}
+
+/* 오른쪽 모델 영역 */
+.kv-right {
+    width: 50%;
+    height: 100%; /* 모델을 바닥에 붙이기 위해 전체 높이 사용 */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* 모델 이미지가 컨테이너 바닥에 딱 붙게 정렬 */
+}
+
+/* --- 모델 뒤 아치형 배경 효과 (CSS로 구현) --- */
+.model-bg {
+    position: absolute;
+    bottom: 0;
+    width: 500px;
+    height: 450px;
+    background-color: rgba(255, 255, 255, 0.08); /* 투명한 흰색 겹침 효과 */
+    border-radius: 250px 250px 0 0; /* 윗부분만 둥글게 처리 */
+    z-index: 1;
+}
+
+/* 바깥쪽 더 큰 아치형 효과 */
+.model-bg::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 550px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 325px 325px 0 0;
+    z-index: -1;
+}
+
+/* 모델 이미지 */
+.model-img {
+    position: relative;
+    z-index: 2; /* 배경 효과보다 앞으로 오게 설정 */
+    max-height: 95%; /* 너무 크면 삐져나가니 높이를 살짝 제한 */
+    width: auto;
+}
+
+/* 기존 타이틀 폰트 및 마진 등 (그대로 유지) */
 .banner-mg {
     margin-top: 20px;
 }
 
-.kv-font {
-    font-family: 'Paperozi';
-    font-size: 92px;
-    font-weight: 800;
-    color: #fff;
+/* --- 코인 위치/각도 설정 --- */
+.coin {
+    position: absolute;
+    z-index: 1; /* 모델(z-index:2)이나 텍스트(z-index:10)보다 뒤에 오게 설정 */
+    opacity: 0.9; /* 살짝 투명도를 주면 배경과 더 잘 어우러집니다 */
+}
+
+.coin1 {
+    top: 15%;
+    left: 10%;
+    width: 35px;
+    transform: rotate(-15deg);
+}
+
+.coin2 {
+    top: 40%;
+    left: -2%;
+    width: 45px;
+    transform: rotate(20deg);
+}
+
+.coin3 {
+    bottom: 12%;
+    left: 4%;
+    width: 30px;
+    transform: rotate(-10deg);
+}
+
+.coin4 {
+    top: 25%;
+    left: 45%;
+    width: 40px;
+    transform: rotate(35deg);
+}
+
+.coin5 {
+    bottom: 35%;
+    left: 32%;
+    width: 37px;
+    transform: rotate(-25deg);
+}
+
+.coin6 {
+    top: 12%;
+    right: 5%;
+    width: 30px;
+    transform: rotate(15deg);
+}
+
+.coin7 {
+    bottom: 20%;
+    right: 3%;
+    width: 38px;
+    transform: rotate(-20deg);
 }
 
 /* =========================================
@@ -534,6 +647,7 @@ body {
     .body-font-2 { font-size: 16px; } /* PC 24px -> 모바일 16px */
     .cap         { font-size: 14px; } /* PC 20px -> 모바일 14px */
     .kv-font { font-size: 46px;}
+    .ft-28 {font-size:16px}
 
     .mg-bottom-200 {
         margin-bottom: 100px;
@@ -623,25 +737,82 @@ body {
         transform: translateY(-9px) rotate(-45deg);
     } */
 
-    .kv {
-        /* 모바일 전용 배경 이미지로 교체 */
-        background: url('../images/kv-mo.png') no-repeat center / cover;
-        padding: 44px 16px 0 16px; /*맨 위 44px 띄우고, 양쪽 16px 적용 */
-        height: 582px;
-    }
-
-    .kv--section {
-        align-items: center; 
-        justify-content: flex-start; 
-    }
-    .kv-title {
-        text-align: center; 
-        margin-bottom: 30px;
+    /* kv영역 */
+   .kv {
+        background-image: none; 
+        background-color: #22C597;
+        padding: 44px 16px 0 16px;
+        height: 582px; 
     }
 
     .kv.mg-bottom-200 {
         margin-bottom: 60px; 
     }
+
+    .kv--section {
+        flex-direction: column; /* 요소를 위아래로 배치 */
+        justify-content: space-between; /* 텍스트는 위로, 모델은 아래로 밀어냄 */
+        align-items: center; 
+        padding-top: 60px;
+    }
+
+    .kv-left {
+        width: 100%;
+        gap: 20px; 
+        align-items: center;
+        z-index: 10;
+    }
+
+    .kv-title {
+        text-align: center; 
+        margin-bottom: 0; 
+    }
+
+    .kv-font {
+        font-size: 46px; 
+        word-break: keep-all; /* 단어 단위로 줄바꿈되게 해서 더 깔끔하게 만듭니다 */
+    }
+
+    .banner-mg {
+        margin-top: 20px; 
+        margin-bottom: 25px; 
+    }
+
+    .kv-right {
+        width: 100%;
+        transform: translateY(40px); 
+    }
+
+    /* 아래로 밀려나 잘리는 것을 감안해서 아치 기둥 높이도 더 길게 키워줍니다 */
+    .model-bg {
+        width: 280px;
+        height: 260px; 
+        border-radius: 140px 140px 0 0;
+    }
+
+    .model-bg::before {
+        width: 360px;
+        height: 320px;
+        border-radius: 180px 180px 0 0;
+    }
+
+    .model-img {
+        max-height: none; /* 부모 크기에 맞춰 작아지던 제한을 해제! */
+        width: 340px; /* 사진 속 비율처럼 모델이 큼직하게 보이도록 가로 크기를 고정합니다 */
+    }
+
+    .coin {
+        transform: scale(0.6); 
+    }
+    
+    .coin2 { display: none;}
+    .coin5 { display: none;}
+    .coin6 { display: none;}
+
+    .coin1 { top: 5%; left: -5%; }
+    .coin6 { top: 5%; right: -5%; }
+    .coin4 { top: 20%; left: 80%; }
+    /* kv 끝 */
 
     .about-cards {
         flex-direction: column; 
