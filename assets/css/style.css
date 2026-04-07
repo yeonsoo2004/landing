@@ -40,7 +40,7 @@ body {
 }
 
 .new_logo span {
-    font-size: 32px;
+    font-size: 2rem; /* 32px -> 2rem */
     font-family: 'Paperozi';
     font-weight: 600;
 }
@@ -136,7 +136,7 @@ body {
 }
 
 .kv-font {
-    font-size: 92px;
+    font-size: 5.75rem; /* 92px -> 5.75rem */
     font-family: 'Paperozi';
     font-weight: 800;
 }
@@ -196,54 +196,13 @@ body {
     opacity: 0.9; /* 살짝 투명도를 주면 배경과 더 잘 어우러집니다 */
 }
 
-.coin1 {
-    top: 15%;
-    left: 10%;
-    width: 35px;
-    transform: rotate(-15deg);
-}
-
-.coin2 {
-    top: 40%;
-    left: -2%;
-    width: 45px;
-    transform: rotate(20deg);
-}
-
-.coin3 {
-    bottom: 12%;
-    left: 4%;
-    width: 30px;
-    transform: rotate(-10deg);
-}
-
-.coin4 {
-    top: 25%;
-    left: 45%;
-    width: 40px;
-    transform: rotate(35deg);
-}
-
-.coin5 {
-    bottom: 35%;
-    left: 32%;
-    width: 37px;
-    transform: rotate(-25deg);
-}
-
-.coin6 {
-    top: 12%;
-    right: 5%;
-    width: 30px;
-    transform: rotate(15deg);
-}
-
-.coin7 {
-    bottom: 20%;
-    right: 3%;
-    width: 38px;
-    transform: rotate(-20deg);
-}
+.coin1 { top: 15%; left: 10%; width: 35px; transform: rotate(-15deg); }
+.coin2 { top: 40%; left: -2%; width: 45px; transform: rotate(20deg); }
+.coin3 { bottom: 12%; left: 4%; width: 30px; transform: rotate(-10deg); }
+.coin4 { top: 25%; left: 45%; width: 40px; transform: rotate(35deg); }
+.coin5 { bottom: 35%; left: 32%; width: 37px; transform: rotate(-25deg); }
+.coin6 { top: 12%; right: 5%; width: 30px; transform: rotate(15deg); }
+.coin7 { bottom: 20%; right: 3%; width: 38px; transform: rotate(-20deg); }
 
 /* =========================================
    About 영역 - PC (데스크톱)
@@ -399,7 +358,7 @@ body {
 }
 
 .font-92 {
-    font-size: 92px;
+    font-size: 5.75rem; /* 92px -> 5.75rem */
     font-weight: 800;
 }
 
@@ -497,7 +456,7 @@ body {
 .sec06-inner {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px; /* 전체 좌우 패딩 */
+    padding: 0 20px; 
 }
 
 /* FAQ 리스트 전체 껍데기 */
@@ -508,43 +467,43 @@ body {
 /* 개별 FAQ 항목 */
 .faq-item {
     border-top: 2px solid #22C597;
-    border-bottom: 1px solid #22C597; /* 각 항목 구분선 */
+    border-bottom: 1px solid #22C597; 
 }
 
 /* 질문(Q) 제목 영역 */
 .faq-title {
     padding: 30px 20px;
-    justify-content: space-between; /* 글씨는 왼쪽, 화살표는 오른쪽 끝으로 */
+    justify-content: space-between; 
     align-items: center;
-    cursor: pointer; /* 클릭할 수 있다는 표시(손가락 모양) */
+    cursor: pointer; 
 }
 
-/* CSS로 직접 그린 화살표 아이콘 */
+/* ✨ 수정: CSS로 그리던 화살표 지우고 SVG 이미지 제어 */
 .arrow {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-right: 2px solid #22C597;
-    border-bottom: 2px solid #22C597;
-    transform: rotate(45deg); /* 아래쪽 화살표 모양으로 돌리기 */
-    transition: transform 0.3s ease; /* 돌아갈 때 부드러운 애니메이션 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 답변(A) 내용 영역 (기본적으로 숨겨둠!) */
+.arrow img {
+    width: 24px; /* 아이콘 크기가 안 맞으면 이 숫자를 조절하세요 */
+    height: auto;
+    transition: transform 0.3s ease; /* 화살표가 부드럽게 돌아가도록 애니메이션 부여 */
+}
+
+/* 답변 (기본적으로 숨겨둠) */
 .faq-content {
-    display: none; /* 평소에는 안 보이게 숨김 */
+    display: none; 
     padding: 0 20px 40px 20px;
-    background-color: #fcfcfc; /* 답변 영역만 살짝 다른 배경색 부여 */
+    background-color: #fcfcfc; 
 }
 
 /* =========================================
-   🔥 자바스크립트를 위한 마법의 클래스 (.active)
+   (.active)
 ========================================= */
-/* HTML에 active 클래스가 붙으면 아래 효과들이 짠! 하고 나타납니다 */
-/* 화살표가 위쪽을 향하도록 뒤집기 */
-/* 숨겨뒀던 답변 보이기 */
-/* .faq-item.active .arrow {
-    transform: rotate(-135deg); 
+/* HTML에 active 클래스가 붙으면 화살표가 위를 향하고 답변이 보이도록*/
+/* .faq-item.active .arrow img {
+    transform: rotate(180deg); /
 }
 
 .faq-item.active .faq-content {
@@ -565,89 +524,15 @@ body {
     width: 22.63px;
 }
 
-@media(max-width:1300px) {
-    .hamburger-icon {
-        display: flex; 
-        flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-        z-index: 1000; /* 메뉴 열렸을 때 버튼이 위에 있게 함 */
-    }
-    
-    .hamburger-icon span {
-        display: block;
-        width: 24px; 
-        height: 3px;
-        background-color: #121212; 
-        border-radius: 3px;
-        transition: all 0.3s ease;
-    }
-
-    /* PC 메뉴(.gnb) 숨기고 모바일 세로 메뉴로 변경 */
-    .gnb {
-        display: none; /* 평소에는 닫혀 있음 */
-        position: absolute;
-        top: 100%; /* 헤더 바로 아래부터 시작 */
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 16px 40px; /* 메뉴 내부도 좌우 16px 적용 */
-        border-bottom: 2px solid #22C597;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        box-sizing: border-box;
-    }
-
-    /* 햄버거 아이콘이 클릭되면(체크되면) 메뉴 열기 */
-    .menu-checkbox:checked ~ .gnb {
-        display: flex;
-    }
-
-    /* 4. 모바일 메뉴 안의 요소들 세로 정렬 */
-    .navi {
-        flex-direction: column;
-        gap: 25px;
-        width: 100%;
-    }
-
-    .direct {
-        width: 100%;
-    }
-
-    .direct_btn {
-        justify-content: center; 
-        padding: 15px 10px; /* 모바일에서 터치하기 쉽게 버튼을 살짝 키움 */
-    }
-
-    .kv {
-        background: url('../images/kv-tb.png') no-repeat center / cover;
-        padding: 44px 16px 0 16px; /*맨 위 44px 띄우고, 양쪽 16px 적용 */
-        height: 652px;
-    }
-
-    .kv--section {
-        align-items: center; 
-        justify-content: flex-start; 
-    }
-    .kv-title {
-        text-align: center; 
-        margin-bottom: 30px;
-    }
-
-    .kv.mg-bottom-200 {
-        margin-bottom: 60px; 
-    }
-}
 @media (max-width: 768px) {
-    .main-font-1 { font-size: 28px; } /* PC 48px -> 모바일 28px */
-    .main-font-2 { font-size: 26px; } 
-    .sub-font    { font-size: 20px; } /* PC 32px -> 모바일 20px */
-    .body-font-1 { font-size: 20px; } /* PC 24px -> 모바일 20px */
-    .body-font-2 { font-size: 16px; } /* PC 24px -> 모바일 16px */
-    .cap         { font-size: 14px; } /* PC 20px -> 모바일 14px */
-    .kv-font { font-size: 46px;}
-    .ft-28 {font-size:16px}
+    .main-font-1 { font-size: 1.75rem; } /* PC 3rem(48px) -> 모바일 1.75rem(28px) */
+    .main-font-2 { font-size: 1.625rem; } /* 모바일 1.625rem(26px) */
+    .sub-font    { font-size: 1.25rem; } /* PC 2rem(32px) -> 모바일 1.25rem(20px) */
+    .body-font-1 { font-size: 1.25rem; } /* PC 1.5rem(24px) -> 모바일 1.25rem(20px) */
+    .body-font-2 { font-size: 1rem; }    /* PC 1.5rem(24px) -> 모바일 1rem(16px) */
+    .cap         { font-size: 0.875rem; } /* PC 1.25rem(20px) -> 모바일 0.875rem(14px) */
+    .kv-font { font-size: 2.875rem; } 
+    .ft-28 {font-size: 1rem;} 
 
     .mg-bottom-200 {
         margin-bottom: 100px;
@@ -662,7 +547,9 @@ body {
     body {
         padding-top: 54px; 
     }
-
+    .new_logo span {
+        font-size: 1.25rem;
+    }
     .nav {
         padding: 15px 16px;
     }
@@ -677,7 +564,7 @@ body {
         flex-direction: column;
         gap: 6px;
         cursor: pointer;
-        z-index: 1000; /* 메뉴 열렸을 때 버튼이 위에 있게 함 */
+        z-index: 1000; 
     }
     
     .hamburger-icon span {
@@ -705,12 +592,11 @@ body {
         box-sizing: border-box;
     }
 
-    /* 햄버거 아이콘이 클릭되면(체크되면) 메뉴 열기 */
+    /* 클릭되면 메뉴 열기 */
     .menu-checkbox:checked ~ .gnb {
         display: flex;
     }
 
-    /* 4. 모바일 메뉴 안의 요소들 세로 정렬 */
     .navi {
         flex-direction: column;
         gap: 25px;
@@ -723,7 +609,7 @@ body {
 
     .direct_btn {
         justify-content: center; 
-        padding: 15px 10px; /* 모바일에서 터치하기 쉽게 버튼을 살짝 키움 */
+        padding: 15px 10px; 
     }
 
     /* 햄버거메뉴 X표시 (주석 해제 필요시 사용) */
@@ -750,8 +636,8 @@ body {
     }
 
     .kv--section {
-        flex-direction: column; /* 요소를 위아래로 배치 */
-        justify-content: space-between; /* 텍스트는 위로, 모델은 아래로 밀어냄 */
+        flex-direction: column; 
+        justify-content: space-between;
         align-items: center; 
         padding-top: 60px;
     }
@@ -769,8 +655,8 @@ body {
     }
 
     .kv-font {
-        font-size: 46px; 
-        word-break: keep-all; /* 단어 단위로 줄바꿈되게 해서 더 깔끔하게 만듭니다 */
+        font-size: 2.875rem; 
+        word-break: keep-all; /* 단어 단위로 줄바꿈 */
     }
 
     .banner-mg {
@@ -783,7 +669,6 @@ body {
         transform: translateY(40px); 
     }
 
-    /* 아래로 밀려나 잘리는 것을 감안해서 아치 기둥 높이도 더 길게 키워줍니다 */
     .model-bg {
         width: 280px;
         height: 260px; 
@@ -797,8 +682,8 @@ body {
     }
 
     .model-img {
-        max-height: none; /* 부모 크기에 맞춰 작아지던 제한을 해제! */
-        width: 340px; /* 사진 속 비율처럼 모델이 큼직하게 보이도록 가로 크기를 고정합니다 */
+        max-height: none; /* 부모 크기에 맞춰 작아지던 제한을 해제 */
+        width: 340px; 
     }
 
     .coin {
@@ -849,10 +734,9 @@ body {
     .benefit-card {
         width: 100%; /* 모바일에서는 카드가 화면 폭을 꽉 채우도록 */
         max-width: 100%;
-        padding: 30px 16px; /* 카드 내부 여백도 모바일에 맞게 조절 */
+        padding: 30px 16px; 
     }
 
-    /* 리뷰섹션 */
     .review-bg {
         padding: 60px 0;
     }
@@ -866,14 +750,14 @@ body {
     }
 
     .font-92 {
-        font-size: 60px; /* 모바일에 맞게 점수 크기 축소 */
+        font-size: 3.75rem;
     }
 
     .review-track {
         justify-content: flex-start; 
         overflow-x: auto; 
         scroll-snap-type: x mandatory; 
-        padding: 0; /* 좌우 패딩을 0으로 만들어 100% 가로폭을 넘지 않게 합니다 */
+        padding: 0; /* 좌우 패딩을 0으로 만들어 100% 가로폭을 넘지 않게 */
         gap: 20px; 
         -ms-overflow-style: none;  
         scrollbar-width: none;  
@@ -922,7 +806,7 @@ body {
 
     /* 05영역 */
     .section05 {
-        height: 350px; /* 모바일에서는 629px이 너무 길 수 있으므로 적절히 축소 */
+        height: 350px; 
         padding: 0 16px; /* 좌우 16px 여백 강제 확보 */
     }
 
@@ -936,32 +820,36 @@ body {
     }
 
     /* =========================================
-       🔥 Section 06 모바일 반응형
+       Section 06 
     ========================================= */
     .section06 {
         padding: 60px 0;
     }
 
     .sec06-inner {
-        padding: 0 16px; /* 좌우 16px 그리드 맞추기 */
+        padding: 0 16px; 
     }
 
     .faq-title {
-        padding: 20px 10px; /* 모바일 터치 영역에 맞게 조절 */
+        padding: 20px 10px; 
     }
 
     .faq-title .ft-28 {
-        font-size: 18px; /* 질문 글자 크기 축소 */
+        font-size: 1.125rem; /* 18px */
         line-height: 1.4;
-        width: 90%; /* 화살표와 겹치지 않게 공간 확보 */
+        width: 90%; 
         word-break: keep-all;
+    }
+
+    .arrow img, .arrow-down img {
+        width: 16px;
     }
 
     .faq-content {
         padding: 0 10px 30px 10px;
     }
 
-    /* 🔥 핵심: 모바일에서는 100px 여백 무효화 */
+    /* 모바일 여백 무효화 */
     .faq-content .mg-left-100 {
         margin-left: 0;
         padding-top: 15px; 
