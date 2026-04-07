@@ -67,6 +67,12 @@
     font-weight: 800;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
 
 
 
@@ -148,10 +154,7 @@
 .d-flex {
     display: flex;
 }
-.mg-auto-1440 {
-    width: 1440px; 
-    margin: 0 auto;
-}
+
 .btn-pd {
     padding: 20px 60px;
 }
@@ -181,10 +184,6 @@
     margin-bottom: 20px;
 }
 
-.width-1440 {
-    width: 1440px;
-}
-
 .mg-tb-10 {
         margin: 10px 0;
     }
@@ -194,6 +193,10 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px; /* PC 기본 좌우 패딩 */
+}
+
+.text-center {
+    text-align: center;
 }
 
 @media (max-width: 768px) {

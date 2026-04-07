@@ -2,12 +2,6 @@
 body {
     padding-top: 144px; 
 }
-.mg-auto-1440,
-.width-1440 {
-    max-width: 1440px; /* 화면이 아무리 커도 1440px까지만 커짐 */
-    width: 100%;       /* 화면이 1440px보다 좁아지면 꽉 차게 알아서 줄어듦 */
-    box-sizing: border-box;
-}
 
 body {
     padding-top: 144px; 
@@ -34,9 +28,24 @@ body {
     position: relative; /* 모바일 메뉴의 기준점 */
 }
 
+/* 로고 영역 가로 정렬 및 간격 설정 */
+.new_logo a {
+    display: flex;
+    align-items: center; /* 아이콘과 글자를 세로 중앙에 맞춤 */
+    gap: 10px; /* 아이콘과 글자 사이의 간격 (필요에 따라 조절) */
+    text-decoration: none; /* 링크 기본 밑줄 제거 */
+}
+
+/* 로고 아이콘 크기 */
 .new_logo img {
-    height: 40px;
+    height: 32.5px; /* 이미지 크기에 맞춰 적절히 조절해주세요 */
     width: auto;
+}
+
+.new_logo span {
+    font-size: 32px;
+    font-family: 'Paperozi';
+    font-weight: 600;
 }
 
 /* 햄버거 체크박스와 아이콘은 PC에서 숨김 */
@@ -88,11 +97,6 @@ body {
 
 .direct_btn:hover {
     background-color: #1aa67f;
-}
-
-/* 공통 중앙 정렬 속성 (style.css 상단에 추가) */
-.text-center {
-    text-align: center;
 }
 
 .kv {
@@ -246,6 +250,13 @@ body {
 .tving-color { color: #FF153C;}
 .naver-color { color: #00C73C;}
 .star-color  { color: #00704A;}
+
+.mg-auto-1440 {
+    max-width: 1440px; /* 화면이 아무리 커도 1440px까지만 커짐 */
+    width: 100%;       /* 화면이 1440px보다 좁아지면 꽉 차게 알아서 줄어듦 */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
 
 /* =========================================
    Section : 리뷰 영역 공통 (PC)
