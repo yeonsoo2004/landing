@@ -115,8 +115,6 @@ body {
     flex-direction: row; 
     align-items: center; 
     justify-content: space-between; 
-    
-    /* ✨ 추가: 코인들이 이 영역을 기준으로 배치되게 함 */
     position: relative; 
 }
 
@@ -125,8 +123,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    
-    /* ✨ 추가: 코인이 글자나 버튼 위를 덮지 않고 뒤로 가도록 설정 */
     position: relative;
     z-index: 10; 
 }
@@ -151,7 +147,7 @@ body {
     align-items: flex-end; /* 모델 이미지가 컨테이너 바닥에 딱 붙게 정렬 */
 }
 
-/* --- 모델 뒤 아치형 배경 효과 (CSS로 구현) --- */
+/* --- 모델 뒤 배경 효과 --- */
 .model-bg {
     position: absolute;
     bottom: 0;
@@ -162,7 +158,7 @@ body {
     z-index: 1;
 }
 
-/* 바깥쪽 더 큰 아치형 효과 */
+/* 바깥쪽 효과 */
 .model-bg::before {
     content: '';
     position: absolute;
@@ -179,12 +175,11 @@ body {
 /* 모델 이미지 */
 .model-img {
     position: relative;
-    z-index: 2; /* 배경 효과보다 앞으로 오게 설정 */
-    max-height: 95%; /* 너무 크면 삐져나가니 높이를 살짝 제한 */
+    z-index: 2; 
+    max-height: 95%; 
     width: auto;
 }
 
-/* 기존 타이틀 폰트 및 마진 등 (그대로 유지) */
 .banner-mg {
     margin-top: 20px;
 }
@@ -192,8 +187,8 @@ body {
 /* --- 코인 위치/각도 설정 --- */
 .coin {
     position: absolute;
-    z-index: 1; /* 모델(z-index:2)이나 텍스트(z-index:10)보다 뒤에 오게 설정 */
-    opacity: 0.9; /* 살짝 투명도를 주면 배경과 더 잘 어우러집니다 */
+    z-index: 1; 
+    opacity: 0.9; 
 }
 
 .coin1 { top: 15%; left: 10%; width: 35px; transform: rotate(-15deg); }
@@ -205,7 +200,7 @@ body {
 .coin7 { bottom: 20%; right: 3%; width: 38px; transform: rotate(-20deg); }
 
 /* =========================================
-   About 영역 - PC (데스크톱)
+   About 영역
 ========================================= */
 .about {
     width: 100%;
@@ -213,22 +208,22 @@ body {
 }
 
 .about-cards {
-    max-width: 1440px; /* 모니터가 아무리 커도 1440px까지만 커짐 */
-    width: 100%;       /* 1440px보다 좁은 화면에서는 자연스럽게 쪼그라듦 */
+    max-width: 1440px; 
+    width: 100%;       
     margin: 0 auto;
     gap: 24px;         /* 카드 사이의 간격 */
     justify-content: center;
 }
 
 .card {
-    background-color: #F8F9FA; /* 카드의 부드러운 회색 배경 (피그마 시안에 맞게 색상코드 수정 필요) */
-    border-radius: 24px; /* 카드 모서리 둥글게 */
+    background-color: #F8F9FA; 
+    border-radius: 24px; 
     padding: 50px 30px;
-    flex-direction: column; /* 카드 안의 텍스트와 이미지를 위아래로 배치 */
+    flex-direction: column; 
     align-items: center;
     text-align: center;
-    flex: 1; /* 3개의 카드가 정확히 1:1:1 비율로 너비를 나눠 가짐 */
-    max-width: 464px; /* 카드가 무한정 넓어지는 것 방지 */
+    flex: 1; 
+    max-width: 464px; 
     box-sizing: border-box;
 }
 
@@ -243,9 +238,9 @@ body {
 .about-mg-30 { margin-bottom: 30px; }
 
 .card img {
-    height: 180px; /* 이미지 크기 통일 */
-    object-fit: contain; /* 이미지가 잘리거나 찌그러지지 않도록 보호 */
-    margin-top: auto; /* 🔥 텍스트 길이가 달라도 이미지를 항상 카드 맨 밑바닥으로 일정하게 밀어냅니다 */
+    height: 180px; 
+    object-fit: contain; 
+    margin-top: auto; 
 }
 
 /* =========================================
@@ -256,28 +251,27 @@ body {
 }
 
 .sec02-title {
-    text-align: center; /* 제목 중앙 정렬 */
+    text-align: center; 
 }
 
-/* 3개의 카드를 가로로 나란히 배치 */
 .benefit-list {
     gap: 24px;
-    justify-content: center; /* 카드들을 가운데로 모음 */
+    justify-content: center;
 }
 
 /* 개별 혜택 카드 디자인 */
 .benefit-card {
-    flex-direction: column; /* 카드 내부의 로고와 텍스트를 위아래로 배치 */
-    align-items: center;    /* 가로 중앙 정렬 */
+    flex-direction: column; 
+    align-items: center;   
     text-align: center;
-    flex: 1;                /* 3개의 카드가 1:1:1 동일한 비율을 가짐 */
-    max-width: 464px;       /* 카드가 너무 넓어지지 않도록 방지 */
+    flex: 1;                
+    max-width: 464px;       
     background-color: #ffffff;
-    border: 1px solid #e5e5e5; /* 깔끔한 테두리 */
-    border-radius: 24px;       /* 둥근 모서리 */
+    border: 1px solid #e5e5e5; 
+    border-radius: 24px;       
     padding: 110px 20px;
     box-sizing: border-box;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* 은은한 그림자 효과 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -324,17 +318,17 @@ body {
 .star-color  { color: #00704A;}
 
 .mg-auto-1440 {
-    max-width: 1440px; /* 화면이 아무리 커도 1440px까지만 커짐 */
-    width: 100%;       /* 화면이 1440px보다 좁아지면 꽉 차게 알아서 줄어듦 */
+    max-width: 1440px; 
+    width: 100%;       
     box-sizing: border-box;
     margin: 0 auto;
 }
 
 /* =========================================
-   Section : 리뷰 영역 공통 (PC)
+    리뷰 영역 
 ========================================= */
 .review-bg {
-    background-color: #F4F6F8; /* 피그마 시안의 연한 배경색 */
+    background-color: #F4F6F8; 
     padding: 100px 0;
 }
 
@@ -478,7 +472,6 @@ body {
     cursor: pointer; 
 }
 
-/* ✨ 수정: CSS로 그리던 화살표 지우고 SVG 이미지 제어 */
 .arrow {
     display: flex;
     align-items: center;
@@ -486,12 +479,11 @@ body {
 }
 
 .arrow img {
-    width: 24px; /* 아이콘 크기가 안 맞으면 이 숫자를 조절하세요 */
+    width: 24px; 
     height: auto;
-    transition: transform 0.3s ease; /* 화살표가 부드럽게 돌아가도록 애니메이션 부여 */
+    transition: transform 0.3s ease; 
 }
 
-/* 답변 (기본적으로 숨겨둠) */
 .faq-content {
     display: none; 
     padding: 0 20px 40px 20px;
@@ -522,6 +514,52 @@ body {
 .arrow-down img{
     height: 22.63px;
     width: 22.63px;
+}
+
+@media (max-width: 1280px) {
+    .main-font-1 { font-size: 2.5rem; }   
+    .main-font-2 { font-size: 2.25rem; }  
+    .sub-font    { font-size: 1.625rem; } 
+    .body-font-1 { font-size: 1.375rem; } 
+    .body-font-2 { font-size: 1.25rem; }  
+    .cap         { font-size: 1rem; }     
+    .kv-font     { font-size: 4.25rem; } 
+    .ft-28       { font-size: 1.375rem; } 
+
+    .kv {
+        height: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-font-1 { font-size: 2.125rem; }
+    .main-font-2 { font-size: 2rem; }    
+    .sub-font    { font-size: 1.5rem; }  
+    .body-font-1 { font-size: 1.375rem; } 
+    .body-font-2 { font-size: 1.125rem; } 
+    .cap         { font-size: 0.9375rem; }
+    .kv-font     { font-size: 3.5rem; }  
+    .ft-28       { font-size: 1.25rem; } 
+
+    body {
+        padding-top: 100px;
+    }
+    .nav {
+        padding: 30px 20px;
+    }
+
+    .coin {
+        width: auto;
+    }
+    .btn-pd {
+        padding: 20px 40px;
+    }
+
+    .kv-right {
+        /* PC 버전의 60px보다 숫자를 키워서 더 아래로 밀어냅니다. */
+        /* 원하는 만큼 내려갈 때까지 100px, 120px, 150px 등으로 숫자를 조절해 보세요! */
+        transform: translateY(120px); 
+    }
 }
 
 @media (max-width: 768px) {
@@ -628,7 +666,7 @@ body {
         background-image: none; 
         background-color: #22C597;
         padding: 44px 16px 0 16px;
-        height: 582px; 
+        height: auto; 
     }
 
     .kv.mg-bottom-200 {
@@ -686,17 +724,6 @@ body {
         width: 340px; 
     }
 
-    .coin {
-        transform: scale(0.6); 
-    }
-    
-    .coin2 { display: none;}
-    .coin5 { display: none;}
-    .coin6 { display: none;}
-
-    .coin1 { top: 5%; left: -5%; }
-    .coin6 { top: 5%; right: -5%; }
-    .coin4 { top: 20%; left: 80%; }
     /* kv 끝 */
 
     .about-cards {
