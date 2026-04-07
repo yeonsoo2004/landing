@@ -69,6 +69,7 @@
 }
 
 
+
 * {
     font-family: 'Pretendard';
     /* overflow-x: hidden; */
@@ -137,6 +138,9 @@
 .point-redColor {
     color: #B41D1D;
 }
+.point-yelColor {
+    color: #FFE500;
+}
 .btn-bgColor {
     background-color: #FFE500;
 }
@@ -184,3 +188,16 @@
 .mg-tb-10 {
         margin: 10px 0;
     }
+
+    /* PC에서는 최대 너비 1440px 중앙 정렬, 모바일에서는 좌우 16px 패딩을 주는 만능 클래스 */
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px; /* PC 기본 좌우 패딩 */
+}
+
+@media (max-width: 768px) {
+    .inner {
+        padding: 0 16px; /* 모바일이 되면 모든 .inner가 알아서 16px로 변함! */
+    }
+}
