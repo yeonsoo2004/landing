@@ -1,5 +1,9 @@
 @import url('common.css');
+html {
+    width: 100%;
+}
 body {
+    width: 100%;
     padding-top: 144px; 
 }
 
@@ -120,6 +124,7 @@ body {
 
 .kv-left {
     width: 50%;
+    min-width: 0; /* flex 행에서 큰 타이포가 가로 스크롤을 유발하지 않도록 */
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -140,6 +145,7 @@ body {
 /* 오른쪽 모델 영역 */
 .kv-right {
     width: 50%;
+    min-width: 0;
     height: 100%; /* 모델을 바닥에 붙이기 위해 전체 높이 사용 */
     position: relative;
     display: flex;
@@ -213,6 +219,7 @@ body {
     margin: 0 auto;
     gap: 24px;         /* 카드 사이의 간격 */
     justify-content: center;
+    min-width: 0; /* flex 컨테이너가 부모 폭을 넘지 않도록 */
 }
 
 .card {
@@ -224,6 +231,7 @@ body {
     text-align: center;
     flex: 1; 
     max-width: 464px; 
+    min-width: 0; /* flex:1 기본 min-width:auto로 인한 가로 오버플로 방지 */
     box-sizing: border-box;
 }
 
@@ -238,7 +246,7 @@ body {
 .about-mg-30 { margin-bottom: 30px; }
 
 .card img {
-    height: 180px; 
+    height: clamp(120px, 12vw, 180px);
     object-fit: contain; 
     margin-top: auto; 
 }
@@ -257,6 +265,7 @@ body {
 .benefit-list {
     gap: 24px;
     justify-content: center;
+    min-width: 0;
 }
 
 /* 개별 혜택 카드 디자인 */
@@ -266,10 +275,11 @@ body {
     text-align: center;
     flex: 1;                
     max-width: 464px;       
+    min-width: 0;
     background-color: #ffffff;
     border: 1px solid #e5e5e5; 
     border-radius: 24px;       
-    padding: 110px 20px;
+    padding: clamp(32px, 6vw, 110px) 20px;
     box-sizing: border-box;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -359,12 +369,14 @@ body {
 .review-slider-wrapper {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 /* PC에서는 스크롤 없이 가로로 3개 쫙 펼쳐줌 */
 .review-track {
     gap: 24px;
     justify-content: center;
+    min-width: 0;
 }
 
 .review-card {
@@ -376,6 +388,7 @@ body {
     text-align: center;
     flex: 1;
     max-width: 400px;
+    min-width: 0;
     box-sizing: border-box;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
@@ -383,6 +396,17 @@ body {
 .stars {
     gap: 5px;
     margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: nowrap;
+}
+
+.star-icon {
+    width: clamp(14px, 2.2vw, 22px);
+    height: auto;
+    flex: 0 0 auto;
+    max-width: 100%;
 }
 
 .review-text {
@@ -409,12 +433,13 @@ body {
 .section05 {
     /* 말씀하신 배경 이미지와 높이 적용 */
     background: url('../images/sec05-bg.png') no-repeat center / cover;
-    height: 629px; 
     width: 100%;
     display: flex;
-    align-items: center; /* 629px 높이 안에서 요소들을 완벽하게 수직 중앙 정렬 */
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    height: auto;
+    padding: 120px 20px;
 }
 
 /* 수직 중앙 정렬을 위해 HTML에 있던 하단 여백 무효화 */
@@ -470,6 +495,16 @@ body {
     justify-content: space-between; 
     align-items: center;
     cursor: pointer; 
+    gap: 16px;
+}
+
+.faq-title > span.ft-28 {
+    flex: 1;
+    min-width: 0; /* 긴 질문이 flex 줄에서 줄바꿈되도록 */
+}
+
+.faq-title .arrow {
+    flex-shrink: 0;
 }
 
 .arrow {
@@ -739,7 +774,7 @@ body {
     }
     
     .card img {
-        height: 140px; /* 모바일에서는 이미지 크기도 살짝 축소 */
+        height: clamp(110px, 32vw, 160px);
     }
 
     /* 혜택 */
@@ -761,7 +796,7 @@ body {
     .benefit-card {
         width: 100%; /* 모바일에서는 카드가 화면 폭을 꽉 채우도록 */
         max-width: 100%;
-        padding: 30px 16px; 
+        padding: clamp(24px, 5vw, 44px) 16px;
     }
 
     .review-bg {
@@ -833,8 +868,8 @@ body {
 
     /* 05영역 */
     .section05 {
-        height: 350px; 
-        padding: 0 16px; /* 좌우 16px 여백 강제 확보 */
+        height: auto;
+        padding: 70px 16px; /* 고정 높이 대신 패딩으로 자연 축소 */
     }
 
     .sec05-main {
