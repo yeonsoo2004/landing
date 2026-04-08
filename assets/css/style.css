@@ -1,10 +1,12 @@
 @import url('common.css');
+
 html {
     width: 100%;
 }
+
 body {
     width: 100%;
-    padding-top: 144px; 
+    padding-top: 144px;
 }
 
 /* =========================================
@@ -26,25 +28,31 @@ body {
     padding: 50px 20px;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* 모바일 메뉴의 기준점 */
+    position: relative;
+    /* 모바일 메뉴의 기준점 */
 }
 
 /* 로고 영역 가로 정렬 및 간격 설정 */
 .new_logo a {
     display: flex;
-    align-items: center; /* 아이콘과 글자를 세로 중앙에 맞춤 */
-    gap: 10px; /* 아이콘과 글자 사이의 간격 (필요에 따라 조절) */
-    text-decoration: none; /* 링크 기본 밑줄 제거 */
+    align-items: center;
+    /* 아이콘과 글자를 세로 중앙에 맞춤 */
+    gap: 10px;
+    /* 아이콘과 글자 사이의 간격 (필요에 따라 조절) */
+    text-decoration: none;
+    /* 링크 기본 밑줄 제거 */
 }
 
 /* 로고 아이콘 크기 */
 .new_logo img {
-    height: 32.5px; /* 이미지 크기에 맞춰 적절히 조절해주세요 */
+    height: 32.5px;
+    /* 이미지 크기에 맞춰 적절히 조절해주세요 */
     width: auto;
 }
 
 .new_logo span {
-    font-size: 2rem; /* 32px -> 2rem */
+    font-size: 2rem;
+    /* 32px -> 2rem */
     font-family: 'Paperozi';
     font-weight: 600;
 }
@@ -53,6 +61,7 @@ body {
 .menu-checkbox {
     display: none;
 }
+
 .hamburger-icon {
     display: none;
 }
@@ -102,42 +111,45 @@ body {
 
 /* 전체 배경 설정 */
 .kv {
-    background-color: #22C597; 
-    height: 788px; 
-    padding: 0 20px; 
+    background-color: #22C597;
+    height: 788px;
+    padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden; /* 모델 이미지나 배경 효과가 영역 밖으로 나가는 것을 방지 */
+    overflow: hidden;
+    /* 모델 이미지나 배경 효과가 영역 밖으로 나가는 것을 방지 */
 }
 
 /* 좌우 정렬을 위한 부모 컨테이너 */
 .kv--section {
     max-width: 1440px;
-    height: 100%; 
+    height: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: space-between; 
-    position: relative; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 .kv-left {
     width: 50%;
-    min-width: 0; /* flex 행에서 큰 타이포가 가로 스크롤을 유발하지 않도록 */
+    min-width: 0;
+    /* flex 행에서 큰 타이포가 가로 스크롤을 유발하지 않도록 */
     display: flex;
     flex-direction: column;
     gap: 50px;
     position: relative;
-    z-index: 10; 
+    z-index: 10;
 }
 
 .kv-title {
-    text-align: left; 
+    text-align: left;
 }
 
 .kv-font {
-    font-size: 5.75rem; /* 92px -> 5.75rem */
+    font-size: 5.75rem;
+    /* 92px -> 5.75rem */
     font-family: 'Paperozi';
     font-weight: 800;
 }
@@ -146,11 +158,13 @@ body {
 .kv-right {
     width: 50%;
     min-width: 0;
-    height: 100%; /* 모델을 바닥에 붙이기 위해 전체 높이 사용 */
+    height: 100%;
+    /* 모델을 바닥에 붙이기 위해 전체 높이 사용 */
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* 모델 이미지가 컨테이너 바닥에 딱 붙게 정렬 */
+    align-items: flex-end;
+    /* 모델 이미지가 컨테이너 바닥에 딱 붙게 정렬 */
 }
 
 /* --- 모델 뒤 배경 효과 --- */
@@ -159,8 +173,10 @@ body {
     bottom: 0;
     width: 500px;
     height: 450px;
-    background-color: rgba(255, 255, 255, 0.08); /* 투명한 흰색 겹침 효과 */
-    border-radius: 250px 250px 0 0; /* 윗부분만 둥글게 처리 */
+    background-color: rgba(255, 255, 255, 0.08);
+    /* 투명한 흰색 겹침 효과 */
+    border-radius: 250px 250px 0 0;
+    /* 윗부분만 둥글게 처리 */
     z-index: 1;
 }
 
@@ -181,8 +197,8 @@ body {
 /* 모델 이미지 */
 .model-img {
     position: relative;
-    z-index: 2; 
-    max-height: 95%; 
+    z-index: 2;
+    max-height: 95%;
     width: auto;
 }
 
@@ -193,17 +209,58 @@ body {
 /* --- 코인 위치/각도 설정 --- */
 .coin {
     position: absolute;
-    z-index: 1; 
-    opacity: 0.9; 
+    z-index: 1;
+    opacity: 0.9;
 }
 
-.coin1 { top: 15%; left: 10%; width: 35px; transform: rotate(-15deg); }
-.coin2 { top: 40%; left: -2%; width: 45px; transform: rotate(20deg); }
-.coin3 { bottom: 12%; left: 4%; width: 30px; transform: rotate(-10deg); }
-.coin4 { top: 25%; left: 45%; width: 40px; transform: rotate(35deg); }
-.coin5 { bottom: 35%; left: 32%; width: 37px; transform: rotate(-25deg); }
-.coin6 { top: 12%; right: 5%; width: 30px; transform: rotate(15deg); }
-.coin7 { bottom: 20%; right: 3%; width: 38px; transform: rotate(-20deg); }
+.coin1 {
+    top: 15%;
+    left: 10%;
+    width: 35px;
+    transform: rotate(-15deg);
+}
+
+.coin2 {
+    top: 40%;
+    left: -2%;
+    width: 45px;
+    transform: rotate(20deg);
+}
+
+.coin3 {
+    bottom: 12%;
+    left: 4%;
+    width: 30px;
+    transform: rotate(-10deg);
+}
+
+.coin4 {
+    top: 25%;
+    left: 45%;
+    width: 40px;
+    transform: rotate(35deg);
+}
+
+.coin5 {
+    bottom: 35%;
+    left: 32%;
+    width: 37px;
+    transform: rotate(-25deg);
+}
+
+.coin6 {
+    top: 12%;
+    right: 5%;
+    width: 30px;
+    transform: rotate(15deg);
+}
+
+.coin7 {
+    bottom: 20%;
+    right: 3%;
+    width: 38px;
+    transform: rotate(-20deg);
+}
 
 /* =========================================
    About 영역
@@ -214,42 +271,163 @@ body {
 }
 
 .about-cards {
-    max-width: 1440px; 
-    width: 100%;       
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    gap: 24px;         /* 카드 사이의 간격 */
+    gap: 24px;
+    /* 카드 사이의 간격 */
     justify-content: center;
-    min-width: 0; /* flex 컨테이너가 부모 폭을 넘지 않도록 */
+    min-width: 0;
+    /* flex 컨테이너가 부모 폭을 넘지 않도록 */
 }
 
 .card {
-    background-color: #F8F9FA; 
-    border-radius: 24px; 
+    background-color: #F8F9FA;
+    border-radius: 24px;
     padding: 50px 30px;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1; 
-    max-width: 464px; 
-    min-width: 0; /* flex:1 기본 min-width:auto로 인한 가로 오버플로 방지 */
+    flex: 1;
+    max-width: 464px;
+    min-width: 0;
+    /* flex:1 기본 min-width:auto로 인한 가로 오버플로 방지 */
     box-sizing: border-box;
 }
 
 .card-title {
     margin-bottom: 16px;
-    word-break: keep-all; /* 단어 단위로 줄바꿈 되도록 설정 */
+    word-break: keep-all;
+    /* 단어 단위로 줄바꿈 되도록 설정 */
 }
 
 /* 카드별 이미지 하단 여백 설정 */
-.about-mg-40 { margin-bottom: 40px; }
-.about-mg-60 { margin-bottom: 60px; }
-.about-mg-30 { margin-bottom: 30px; }
+.about-mg-40 {
+    margin-bottom: 40px;
+}
+
+.about-mg-60 {
+    margin-bottom: 60px;
+}
+
+.about-mg-30 {
+    margin-bottom: 30px;
+}
 
 .card img {
     height: clamp(120px, 12vw, 180px);
-    object-fit: contain; 
-    margin-top: auto; 
+    object-fit: contain;
+    margin-top: auto;
 }
+
+/* 공통 유틸리티 */
+.d-flex {
+    display: flex;
+}
+
+/* 섹션 기본 여백 */
+.promise-section {
+    padding: 100px 0;
+    width: 100%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden; 
+    background-color: #E6F8F0; 
+}
+
+.slider-track {
+    width: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+    min-width: 100%; 
+    height: 508px;
+    align-items: center;
+    justify-content: center;
+    gap: 20%; 
+    padding: 0 100px; 
+    box-sizing: border-box;
+}
+
+.badge-area {
+    flex-direction: column;
+    gap: 16px;
+}
+
+.benefit-badge {
+    background-color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 50px;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* 약간의 그림자로 입체감 부여 */
+}
+
+/* 하단 강조 뱃지 색상 (폰트 컬러 제외 배경만) */
+.highlight-badge {
+    background-color: #2cd09b; 
+}
+
+/* 페이지네이션 (하단 닷) */
+.pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 12px;
+    z-index: 5;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    opacity: 1;
+    background-color: #2cd09b;
+}
+
+/* 화살표 버튼 */
+.promise-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.arrow-prev { left: 24px; }
+.arrow-next { right: 24px; }
+
 
 /* =========================================
    Section 02 : 단독 제휴 혜택 (PC 데스크톱)
@@ -259,7 +437,7 @@ body {
 }
 
 .sec02-title {
-    text-align: center; 
+    text-align: center;
 }
 
 .benefit-list {
@@ -270,18 +448,18 @@ body {
 
 /* 개별 혜택 카드 디자인 */
 .benefit-card {
-    flex-direction: column; 
-    align-items: center;   
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    flex: 1;                
-    max-width: 464px;       
+    flex: 1;
+    max-width: 464px;
     min-width: 0;
     background-color: #ffffff;
-    border: 1px solid #e5e5e5; 
-    border-radius: 24px;       
+    border: 1px solid #e5e5e5;
+    border-radius: 24px;
     padding: clamp(32px, 6vw, 110px) 20px;
     box-sizing: border-box;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -292,7 +470,8 @@ body {
 }
 
 .card-logo {
-    height: 60px; /* 로고 영역의 높이를 통일하여 텍스트 시작선을 맞춤 */
+    height: 60px;
+    /* 로고 영역의 높이를 통일하여 텍스트 시작선을 맞춤 */
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -310,26 +489,35 @@ body {
 }
 
 .card-tving {
-    background-color: rgba(255, 21, 60, 0.2); 
-    border: 1px solid rgba(255, 21, 60, 0.2); 
+    background-color: rgba(255, 21, 60, 0.2);
+    border: 1px solid rgba(255, 21, 60, 0.2);
 }
 
 .card-npay {
-    background-color: rgba(0, 199, 60, 0.2); 
+    background-color: rgba(0, 199, 60, 0.2);
     border: 1px solid rgba(0, 199, 60, 0.2);
 }
 
 .card-starbucks {
-    background-color: rgba(0, 112, 74, 0.2); 
+    background-color: rgba(0, 112, 74, 0.2);
     border: 1px solid rgba(0, 112, 74, 0.2);
 }
-.tving-color { color: #FF153C;}
-.naver-color { color: #00C73C;}
-.star-color  { color: #00704A;}
+
+.tving-color {
+    color: #FF153C;
+}
+
+.naver-color {
+    color: #00C73C;
+}
+
+.star-color {
+    color: #00704A;
+}
 
 .mg-auto-1440 {
-    max-width: 1440px; 
-    width: 100%;       
+    max-width: 1440px;
+    width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
 }
@@ -338,7 +526,7 @@ body {
     리뷰 영역 
 ========================================= */
 .review-bg {
-    background-color: #F4F6F8; 
+    background-color: #F4F6F8;
     padding: 100px 0;
 }
 
@@ -362,7 +550,8 @@ body {
 }
 
 .font-92 {
-    font-size: 5.75rem; /* 92px -> 5.75rem */
+    font-size: 5.75rem;
+    /* 92px -> 5.75rem */
     font-weight: 800;
 }
 
@@ -390,7 +579,7 @@ body {
     max-width: 400px;
     min-width: 0;
     box-sizing: border-box;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .stars {
@@ -411,7 +600,8 @@ body {
 
 .review-text {
     margin-bottom: 40px;
-    word-break: keep-all; /* 단어 단위 줄바꿈 */
+    word-break: keep-all;
+    /* 단어 단위 줄바꿈 */
 }
 
 .customer-info {
@@ -451,18 +641,18 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px; /* 시안과 비슷한 간격 */
+    gap: 30px;
+    /* 시안과 비슷한 간격 */
     width: 100%;
 }
 
 .sec05-banner-box {
     background-color: #ffffff;
-    border-radius: 30px; 
+    border-radius: 30px;
     padding: 20px 60px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* 06영역 */
 /* =========================================
    Section 06 : FAQ 영역 (PC)
 ========================================= */
@@ -470,12 +660,6 @@ body {
     width: 100%;
     padding: 100px 0;
     box-sizing: border-box;
-}
-
-.sec06-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px; 
 }
 
 /* FAQ 리스트 전체 껍데기 */
@@ -486,21 +670,22 @@ body {
 /* 개별 FAQ 항목 */
 .faq-item {
     border-top: 2px solid #22C597;
-    border-bottom: 1px solid #22C597; 
+    border-bottom: 1px solid #22C597;
 }
 
 /* 질문(Q) 제목 영역 */
 .faq-title {
     padding: 30px 20px;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer; 
+    cursor: pointer;
     gap: 16px;
 }
 
-.faq-title > span.ft-28 {
+.faq-title>span.ft-28 {
     flex: 1;
-    min-width: 0; /* 긴 질문이 flex 줄에서 줄바꿈되도록 */
+    min-width: 0;
+    /* 긴 질문이 flex 줄에서 줄바꿈되도록 */
 }
 
 .faq-title .arrow {
@@ -514,15 +699,15 @@ body {
 }
 
 .arrow img {
-    width: 24px; 
+    width: 24px;
     height: auto;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .faq-content {
-    display: none; 
+    display: none;
     padding: 0 20px 40px 20px;
-    background-color: #fcfcfc; 
+    background-color: #fcfcfc;
 }
 
 /* =========================================
@@ -546,20 +731,43 @@ body {
     gap: 30px;
 }
 
-.arrow-down img{
+.arrow-down img {
     height: 22.63px;
     width: 22.63px;
 }
 
 @media (max-width: 1280px) {
-    .main-font-1 { font-size: 2.5rem; }   
-    .main-font-2 { font-size: 2.25rem; }  
-    .sub-font    { font-size: 1.625rem; } 
-    .body-font-1 { font-size: 1.375rem; } 
-    .body-font-2 { font-size: 1.25rem; }  
-    .cap         { font-size: 1rem; }     
-    .kv-font     { font-size: 4.25rem; } 
-    .ft-28       { font-size: 1.375rem; } 
+    .main-font-1 {
+        font-size: 2.5rem;
+    }
+
+    .main-font-2 {
+        font-size: 2.25rem;
+    }
+
+    .sub-font {
+        font-size: 1.625rem;
+    }
+
+    .body-font-1 {
+        font-size: 1.375rem;
+    }
+
+    .body-font-2 {
+        font-size: 1.25rem;
+    }
+
+    .cap {
+        font-size: 1rem;
+    }
+
+    .kv-font {
+        font-size: 4.25rem;
+    }
+
+    .ft-28 {
+        font-size: 1.375rem;
+    }
 
     .kv {
         height: auto;
@@ -567,18 +775,42 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .main-font-1 { font-size: 2.125rem; }
-    .main-font-2 { font-size: 2rem; }    
-    .sub-font    { font-size: 1.5rem; }  
-    .body-font-1 { font-size: 1.375rem; } 
-    .body-font-2 { font-size: 1.125rem; } 
-    .cap         { font-size: 0.9375rem; }
-    .kv-font     { font-size: 3.5rem; }  
-    .ft-28       { font-size: 1.25rem; } 
+    .main-font-1 {
+        font-size: 2.125rem;
+    }
+
+    .main-font-2 {
+        font-size: 2rem;
+    }
+
+    .sub-font {
+        font-size: 1.5rem;
+    }
+
+    .body-font-1 {
+        font-size: 1.375rem;
+    }
+
+    .body-font-2 {
+        font-size: 1.125rem;
+    }
+
+    .cap {
+        font-size: 0.9375rem;
+    }
+
+    .kv-font {
+        font-size: 3.5rem;
+    }
+
+    .ft-28 {
+        font-size: 1.25rem;
+    }
 
     body {
         padding-top: 100px;
     }
+
     .nav {
         padding: 30px 20px;
     }
@@ -586,6 +818,7 @@ body {
     .coin {
         width: auto;
     }
+
     .btn-pd {
         padding: 20px 40px;
     }
@@ -593,19 +826,48 @@ body {
     .kv-right {
         /* PC 버전의 60px보다 숫자를 키워서 더 아래로 밀어냅니다. */
         /* 원하는 만큼 내려갈 때까지 100px, 120px, 150px 등으로 숫자를 조절해 보세요! */
-        transform: translateY(120px); 
+        transform: translateY(120px);
     }
 }
 
 @media (max-width: 768px) {
-    .main-font-1 { font-size: 1.75rem; } /* PC 3rem(48px) -> 모바일 1.75rem(28px) */
-    .main-font-2 { font-size: 1.625rem; } /* 모바일 1.625rem(26px) */
-    .sub-font    { font-size: 1.25rem; } /* PC 2rem(32px) -> 모바일 1.25rem(20px) */
-    .body-font-1 { font-size: 1.25rem; } /* PC 1.5rem(24px) -> 모바일 1.25rem(20px) */
-    .body-font-2 { font-size: 1rem; }    /* PC 1.5rem(24px) -> 모바일 1rem(16px) */
-    .cap         { font-size: 0.875rem; } /* PC 1.25rem(20px) -> 모바일 0.875rem(14px) */
-    .kv-font { font-size: 2.875rem; } 
-    .ft-28 {font-size: 1rem;} 
+    .main-font-1 {
+        font-size: 1.75rem;
+    }
+
+    /* PC 3rem(48px) -> 모바일 1.75rem(28px) */
+    .main-font-2 {
+        font-size: 1.625rem;
+    }
+
+    /* 모바일 1.625rem(26px) */
+    .sub-font {
+        font-size: 1.25rem;
+    }
+
+    /* PC 2rem(32px) -> 모바일 1.25rem(20px) */
+    .body-font-1 {
+        font-size: 1.25rem;
+    }
+
+    /* PC 1.5rem(24px) -> 모바일 1.25rem(20px) */
+    .body-font-2 {
+        font-size: 1rem;
+    }
+
+    /* PC 1.5rem(24px) -> 모바일 1rem(16px) */
+    .cap {
+        font-size: 0.875rem;
+    }
+
+    /* PC 1.25rem(20px) -> 모바일 0.875rem(14px) */
+    .kv-font {
+        font-size: 2.875rem;
+    }
+
+    .ft-28 {
+        font-size: 1rem;
+    }
 
     .mg-bottom-200 {
         margin-bottom: 100px;
@@ -616,57 +878,63 @@ body {
         width: 100%;
         box-sizing: border-box;
     }
+
     /* 모바일 헤더 높이(약 54px)에 맞춰 */
     body {
-        padding-top: 54px; 
+        padding-top: 54px;
     }
+
     .new_logo span {
         font-size: 1.25rem;
     }
+
     .nav {
         padding: 15px 16px;
     }
-    
+
     .new_logo img {
-        height: 24px; 
+        height: 24px;
     }
 
     /* 햄버거 아이콘 */
     .hamburger-icon {
-        display: flex; 
+        display: flex;
         flex-direction: column;
         gap: 6px;
         cursor: pointer;
-        z-index: 1000; 
+        z-index: 1000;
     }
-    
+
     .hamburger-icon span {
         display: block;
-        width: 24px; 
+        width: 24px;
         height: 3px;
-        background-color: #121212; 
+        background-color: #121212;
         border-radius: 3px;
         transition: all 0.3s ease;
     }
 
     /* PC 메뉴(.gnb) 숨기고 모바일 세로 메뉴로 변경 */
     .gnb {
-        display: none; /* 평소에는 닫혀 있음 */
+        display: none;
+        /* 평소에는 닫혀 있음 */
         position: absolute;
-        top: 100%; /* 헤더 바로 아래부터 시작 */
+        top: 100%;
+        /* 헤더 바로 아래부터 시작 */
         left: 0;
         width: 100%;
         background-color: #ffffff;
         flex-direction: column;
         align-items: center;
-        padding: 30px 16px 40px; /* 메뉴 내부도 좌우 16px 적용 */
+        padding: 30px 16px 40px;
+        /* 메뉴 내부도 좌우 16px 적용 */
         border-bottom: 2px solid #22C597;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
     }
 
     /* 클릭되면 메뉴 열기 */
-    .menu-checkbox:checked ~ .gnb {
+    .menu-checkbox:checked~.gnb {
         display: flex;
     }
 
@@ -681,8 +949,8 @@ body {
     }
 
     .direct_btn {
-        justify-content: center; 
-        padding: 15px 10px; 
+        justify-content: center;
+        padding: 15px 10px;
     }
 
     /* 햄버거메뉴 X표시 (주석 해제 필요시 사용) */
@@ -697,54 +965,55 @@ body {
     } */
 
     /* kv영역 */
-   .kv {
-        background-image: none; 
+    .kv {
+        background-image: none;
         background-color: #22C597;
         padding: 44px 16px 0 16px;
-        height: auto; 
+        height: auto;
     }
 
     .kv.mg-bottom-200 {
-        margin-bottom: 60px; 
+        margin-bottom: 60px;
     }
 
     .kv--section {
-        flex-direction: column; 
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center; 
+        align-items: center;
         padding-top: 60px;
     }
 
     .kv-left {
         width: 100%;
-        gap: 20px; 
+        gap: 20px;
         align-items: center;
         z-index: 10;
     }
 
     .kv-title {
-        text-align: center; 
-        margin-bottom: 0; 
+        text-align: center;
+        margin-bottom: 0;
     }
 
     .kv-font {
-        font-size: 2.875rem; 
-        word-break: keep-all; /* 단어 단위로 줄바꿈 */
+        font-size: 2.875rem;
+        word-break: keep-all;
+        /* 단어 단위로 줄바꿈 */
     }
 
     .banner-mg {
-        margin-top: 20px; 
-        margin-bottom: 25px; 
+        margin-top: 20px;
+        margin-bottom: 25px;
     }
 
     .kv-right {
         width: 100%;
-        transform: translateY(40px); 
+        transform: translateY(40px);
     }
 
     .model-bg {
         width: 280px;
-        height: 260px; 
+        height: 260px;
         border-radius: 140px 140px 0 0;
     }
 
@@ -755,27 +1024,64 @@ body {
     }
 
     .model-img {
-        max-height: none; /* 부모 크기에 맞춰 작아지던 제한을 해제 */
-        width: 340px; 
+        max-height: none;
+        /* 부모 크기에 맞춰 작아지던 제한을 해제 */
+        width: 340px;
     }
 
     /* kv 끝 */
 
     .about-cards {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
     .card {
-        width: 100%; 
+        width: 100%;
         max-width: 100%;
-        padding: 40px 16px; /* 카드 내부 좌우 여백*/
+        padding: 40px 16px;
+        /* 카드 내부 좌우 여백*/
     }
-    
+
     .card img {
         height: clamp(110px, 32vw, 160px);
     }
+    
+    /* sec01 */
+    .promise-section {
+        padding: 60px 0; /* 위아래 여백 축소 */
+    }
+
+    .slide {
+        flex-direction: column; /* 좌우 배치를 위아래 배치로 변경 */
+        height: auto; /* 내용물 길이에 맞춰 높이 자동 조절 */
+        padding: 60px 20px 80px 20px; /* 하단에 닷(dot)이 들어갈 공간 확보 */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .badge-area {
+        width: 100%;
+        align-items: center;
+    }
+
+    .benefit-badge {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center; /* 뱃지 안의 내용물도 가운데 정렬 */
+    }
+
+    /* 화살표 버튼 크기 축소 및 위치 조정 */
+    .promise-arrow-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow-prev { left: 10px; }
+    .arrow-next { right: 10px; }
+    
+    .pagination { bottom: 20px; }
 
     /* 혜택 */
     .section02 .mg-auto-1440 {
@@ -790,11 +1096,13 @@ body {
     .benefit-list {
         flex-direction: column;
         align-items: center;
-        gap: 20px; /* 세로 카드 사이의 간격 */
+        gap: 20px;
+        /* 세로 카드 사이의 간격 */
     }
 
     .benefit-card {
-        width: 100%; /* 모바일에서는 카드가 화면 폭을 꽉 채우도록 */
+        width: 100%;
+        /* 모바일에서는 카드가 화면 폭을 꽉 채우도록 */
         max-width: 100%;
         padding: clamp(24px, 5vw, 44px) 16px;
     }
@@ -816,32 +1124,34 @@ body {
     }
 
     .review-track {
-        justify-content: flex-start; 
-        overflow-x: auto; 
-        scroll-snap-type: x mandatory; 
-        padding: 0; /* 좌우 패딩을 0으로 만들어 100% 가로폭을 넘지 않게 */
-        gap: 20px; 
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0;
+        /* 좌우 패딩을 0으로 만들어 100% 가로폭을 넘지 않게 */
+        gap: 20px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
+
     .review-track::-webkit-scrollbar {
-        display: none; 
+        display: none;
     }
 
     .review-card {
-        width: 100%; 
+        width: 100%;
         min-width: 100%;
         max-width: 100%;
-        flex-shrink: 0; 
-        scroll-snap-align: center; 
-        padding: 40px 34px; 
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        padding: 40px 34px;
         box-sizing: border-box;
     }
 
     .slider-btn {
         display: flex;
         position: absolute;
-        top: 50%; 
+        top: 50%;
         transform: translateY(-50%);
         width: 40px;
         height: 40px;
@@ -859,26 +1169,29 @@ body {
     }
 
     .prev-btn {
-        left: -16px; 
+        left: -16px;
     }
 
     .next-btn {
-        right: -16px; 
+        right: -16px;
     }
 
     /* 05영역 */
     .section05 {
         height: auto;
-        padding: 70px 16px; /* 고정 높이 대신 패딩으로 자연 축소 */
+        padding: 70px 16px;
+        /* 고정 높이 대신 패딩으로 자연 축소 */
     }
 
     .sec05-main {
-        gap: 20px; /* 요소 간격 축소 */
+        gap: 20px;
+        /* 요소 간격 축소 */
     }
 
     .sec05-banner-box {
-        padding: 15px 30px; /* 모바일 화면에 맞게 박스 내부 여백 축소 */
-        border-radius: 20px; 
+        padding: 15px 30px;
+        /* 모바일 화면에 맞게 박스 내부 여백 축소 */
+        border-radius: 20px;
     }
 
     /* =========================================
@@ -889,21 +1202,23 @@ body {
     }
 
     .sec06-inner {
-        padding: 0 16px; 
+        padding: 0 16px;
     }
 
     .faq-title {
-        padding: 20px 10px; 
+        padding: 20px 10px;
     }
 
     .faq-title .ft-28 {
-        font-size: 1.125rem; /* 18px */
+        font-size: 1.125rem;
+        /* 18px */
         line-height: 1.4;
-        width: 90%; 
+        width: 90%;
         word-break: keep-all;
     }
 
-    .arrow img, .arrow-down img {
+    .arrow img,
+    .arrow-down img {
         width: 16px;
     }
 
@@ -914,6 +1229,6 @@ body {
     /* 모바일 여백 무효화 */
     .faq-content .mg-left-100 {
         margin-left: 0;
-        padding-top: 15px; 
+        padding-top: 15px;
     }
 }
