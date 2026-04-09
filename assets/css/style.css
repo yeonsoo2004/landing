@@ -594,6 +594,116 @@ body {
 }
 
 /* =========================================
+   Section 04 (실시간 신청자 현황)
+========================================= */
+.section04 {
+    background-image: url('../images/sec04-bg.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding: 100px 0;
+    background-color: #fafafa;
+}
+
+.sec04-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sec04-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sec04-header h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.sec04-header .point-color {
+    color: #1cc686;
+}
+
+.sec04-header p {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #666;
+}
+
+.table-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #bdf1dd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.status-table th {
+    background-color: #1cc686;
+    color: #ffffff;
+    padding: 20px 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.status-table td {
+    padding: 20px 10px;
+    border-bottom: 1px solid #f1f1f1;
+    color: #444;
+    font-size: 16px;
+}
+
+.status-table tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    min-width: 80px;
+    white-space: nowrap;
+}
+
+.status-badge.complete {
+    background-color: #1cc686;
+}
+
+.status-badge.pending {
+    background-color: #d32f2f;
+}
+
+.sec04-row-new {
+    animation: sec04RowPop 600ms ease-out;
+}
+
+@keyframes sec04RowPop {
+    from {
+        transform: translateY(6px);
+        background-color: rgba(34, 197, 151, 0.10);
+    }
+    to {
+        transform: translateY(0);
+        background-color: transparent;
+    }
+}
+
+/* =========================================
    Section 05 : 120% 보상제 안내 (PC)
 ========================================= */
 .section05 {
@@ -1037,6 +1147,39 @@ body {
         box-sizing: border-box;
     }
 
+    /* 04영역 */
+    .section04 {
+        padding: 70px 0;
+        background-position: center top;
+    }
+
+    .sec04-inner {
+        padding: 0 16px;
+    }
+
+    .sec04-header {
+        margin-bottom: 30px;
+    }
+
+    .table-wrapper {
+        border-radius: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .status-table {
+        min-width: 640px; /* 4컬럼 유지하면서 너무 촘촘해지지 않게 */
+    }
+
+    .status-table th {
+        padding: 16px 10px;
+        font-size: 16px;
+    }
+
+    .status-table td {
+        padding: 16px 10px;
+        font-size: 14px;
+    }
 
     /* 05영역 */
     .section05 {
