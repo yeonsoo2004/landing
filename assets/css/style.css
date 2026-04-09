@@ -375,7 +375,8 @@ body {
     border-radius: 50px;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* 약간의 그림자로 입체감 부여 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); 
+    justify-content: space-between;
 }
 
 /* 하단 강조 뱃지 색상 (폰트 컬러 제외 배경만) */
@@ -409,7 +410,7 @@ body {
 }
 
 /* 화살표 버튼 */
-/* .promise-arrow-btn {
+.promise-arrow-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -422,7 +423,7 @@ body {
 }
 
 .arrow-prev { left: 24px; }
-.arrow-next { right: 24px; } */
+.arrow-next { right: 24px; }
 
 
 /* =========================================
@@ -604,6 +605,11 @@ body {
     border-radius: 10px;
     align-items: center;
     gap: 10px;
+}
+
+/* PC에서는 슬라이더 버튼 숨김 */
+.slider-btn {
+    display: none;
 }
 
 /* =========================================
@@ -1058,9 +1064,16 @@ body {
     .benefit-badge {
         width: 100%;
         max-width: 320px;
-        justify-content: center; /* 뱃지 안의 내용물도 가운데 정렬 */
     }
 
+    /* 화살표 버튼 크기 축소 및 위치 조정 */
+    .promise-arrow-btn {
+        display: none;
+    }
+
+    .arrow-prev { left: 10px; }
+    .arrow-next { right: 10px; }
+    
     .pagination { bottom: 20px; }
 
     /* 혜택 */
@@ -1127,6 +1140,7 @@ body {
         padding: 40px 34px;
         box-sizing: border-box;
     }
+
 
     /* 05영역 */
     .section05 {
