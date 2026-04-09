@@ -618,24 +618,9 @@ body {
     margin-bottom: 50px;
 }
 
-.sec04-header h2 {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #222;
-}
-
-.sec04-header .point-color {
-    color: #1cc686;
-}
-
-.sec04-header p {
-    font-size: clamp(15px, 2vw, 18px);
-    color: #666;
-}
-
 .table-wrapper {
-    background-color: #ffffff;
+    /* sec04배경색 */
+    background-color: #f4f6f8;
     border: 1px solid #bdf1dd;
     border-radius: 20px;
     overflow: hidden;
@@ -649,31 +634,35 @@ body {
 }
 
 .status-table th {
-    background-color: #1cc686;
-    color: #ffffff;
+    background-color: #22C597;
     padding: 20px 10px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 1rem;
+}
+
+.status-table th + th {
+    border-left: 1px solid rgba(255, 255, 255, 0.55);
 }
 
 .status-table td {
     padding: 20px 10px;
-    border-bottom: 1px solid #f1f1f1;
-    color: #444;
-    font-size: 16px;
+    /* 본문(실시간 행): 세로선 없이 가로선만 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+    color: #121212;
+    font-size: 1rem;
 }
 
 .status-table tr:last-child td {
     border-bottom: none;
 }
 
+/* js */
 .status-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
     font-weight: 500;
     color: #ffffff;
     min-width: 80px;
@@ -681,11 +670,11 @@ body {
 }
 
 .status-badge.complete {
-    background-color: #1cc686;
+    background-color: #22C597;
 }
 
 .status-badge.pending {
-    background-color: #d32f2f;
+    background-color: #B41D1D;
 }
 
 .sec04-row-new {
@@ -739,6 +728,12 @@ body {
     width: 100%;
     padding: 100px 0;
     box-sizing: border-box;
+    /* FAQ 답변 레이아웃/반응형 변수 */
+    --faq-answer-pt: 30px;
+    --faq-answer-pr: 20px;
+    --faq-answer-pb: 40px;
+    --faq-answer-pl: 20px;
+    --faq-answer-indent: 100px;
 }
 
 /* FAQ 리스트 전체 껍데기 */
@@ -784,22 +779,25 @@ body {
 }
 
 .faq-content {
-    display: none;
-    padding: 0 20px 40px 20px;
+    /* 애니메이션은 JS에서 height/padding을 직접 제어(버벅임/점프 방지) */
+    display: block;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
     background-color: #fcfcfc;
+    will-change: height, padding, opacity;
 }
 
-/* =========================================
-   (.active)
-========================================= */
-/* HTML에 active 클래스가 붙으면 화살표가 위를 향하고 답변이 보이도록*/
-/* .faq-item.active .arrow img {
-    transform: rotate(180deg); /
+.faq-item.active .arrow img {
+    transform: rotate(180deg);
 }
 
-.faq-item.active .faq-content {
-    display: block; 
-} */
+/* 답변 문단 들여쓰기(약 100px) */
+.faq-content > p {
+    padding-left: var(--faq-answer-indent);
+    word-break: keep-all;
+}
 
 
 /* Footer 부분 */
@@ -816,7 +814,13 @@ body {
 }
 
 @media (max-width: 1280px) {
-
+    .section06 {
+        --faq-answer-pt: 26px;
+        --faq-answer-pr: 20px;
+        --faq-answer-pb: 34px;
+        --faq-answer-pl: 20px;
+        --faq-answer-indent: 92px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -860,6 +864,14 @@ body {
     }
     .slide {
         height: 408px;
+    }
+
+    .section06 {
+        --faq-answer-pt: 22px;
+        --faq-answer-pr: 18px;
+        --faq-answer-pb: 30px;
+        --faq-answer-pl: 18px;
+        --faq-answer-indent: 84px;
     }
 }
 
@@ -1153,10 +1165,6 @@ body {
         background-position: center top;
     }
 
-    .sec04-inner {
-        padding: 0 16px;
-    }
-
     .sec04-header {
         margin-bottom: 30px;
     }
@@ -1225,12 +1233,39 @@ body {
     }
 
     .faq-content {
-        padding: 0 10px 30px 10px;
+        padding: 0;
     }
 
     /* 모바일 여백 무효화 */
     .faq-content .mg-left-100 {
         margin-left: 0;
         padding-top: 15px;
+    }
+
+    .faq-content > p {
+        padding-left: var(--faq-answer-indent);
+    }
+
+    .section06 {
+        --faq-answer-pt: 18px;
+        --faq-answer-pr: 10px;
+        --faq-answer-pb: 26px;
+        --faq-answer-pl: 10px;
+        --faq-answer-indent: min(72px, 14vw);
+    }
+}
+
+@media (max-width: 540px) {
+    .section06 {
+        padding: 50px 0;
+        --faq-answer-pt: 16px;
+        --faq-answer-pr: 10px;
+        --faq-answer-pb: 22px;
+        --faq-answer-pl: 10px;
+        --faq-answer-indent: min(56px, 13vw);
+    }
+
+    .faq-title {
+        padding: 18px 10px;
     }
 }
