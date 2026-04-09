@@ -113,7 +113,7 @@ body {
 .kv {
     background-color: #22C597;
     height: 788px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -885,9 +885,15 @@ body {
         margin-bottom: 25px;
     }
 
+    /* 모델: 하단 약 1/3은 보이지 않게(상단 위주 노출). HTML 변경 없이 clip + object-fit으로 처리 */
     .kv-right {
         width: 100%;
         transform: translateY(40px);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 0;
     }
 
     .model-bg {
@@ -903,9 +909,16 @@ body {
     }
 
     .model-img {
+        --model-w: min(340px, 92vw);
+        width: var(--model-w);
+        max-width: 100%;
+        /* 세로 모델 비율이 대략 2:3일 때, 박스 높이 ≈ 가로폭이면 cover+top 기준 하단 약 1/3이 잘림 */
+        height: calc(var(--model-w) * 1);
         max-height: none;
-        /* 부모 크기에 맞춰 작아지던 제한을 해제 */
-        width: 340px;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        flex-shrink: 0;
     }
 
     /* kv 끝 */
