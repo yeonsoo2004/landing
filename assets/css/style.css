@@ -527,8 +527,6 @@ body {
 }
 
 .review-inner {
-    max-width: 1440px;
-    margin: 0 auto;
     flex-direction: column;
     align-items: center;
     gap: 60px;
