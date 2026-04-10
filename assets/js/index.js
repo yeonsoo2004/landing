@@ -29,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         nextBtn.addEventListener("click", () => {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-                updateSlider();
-            }
+            // 마지막 슬라이드에서 더 누르면 처음으로 순환
+            currentIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+            updateSlider();
         });
 
         dots.forEach((dot, index) => {
@@ -261,6 +260,24 @@ document.addEventListener("DOMContentLoaded", () => {
         ctaForm.addEventListener("submit", (e) => {
             e.preventDefault();
             // 백엔드 연동 전까지 기본 제출만 막음. 검증은 HTML5 required + 체크박스 required로 처리됨.
+        });
+    }
+
+    // ------------------------------
+    // Scroll-to-top floating button
+    // ------------------------------
+    const scrollTopBtn = document.getElementById("scroll-top-btn");
+    if (scrollTopBtn) {
+        const toggleVisible = () => {
+            const y = window.scrollY || document.documentElement.scrollTop || 0;
+            scrollTopBtn.classList.toggle("is-visible", y > 300);
+        };
+
+        toggleVisible();
+        window.addEventListener("scroll", toggleVisible, { passive: true });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
 });

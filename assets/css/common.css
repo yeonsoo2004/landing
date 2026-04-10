@@ -253,10 +253,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .inner {
-        padding: 0 144px;
-    }
-
     .main-font-1 { font-size: 1.6rem; }
     .main-font-2 { font-size: 1.52rem; }
     .sub-font { font-size: 1.25rem; }
