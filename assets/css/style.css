@@ -1225,7 +1225,7 @@ body {
 }
 
 @media (max-width: 1280px) {
-    .ft-28 { font-size: 1.375rem; }
+    .ft-28 { font-size: 1.33rem; }
     .inner {
         padding: 0 20px;
     }
