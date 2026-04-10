@@ -731,7 +731,7 @@ body {
 }
 
 .sec04-row-new {
-    animation: sec04RowPop 600ms ease-out;
+    animation: sec04RowPop 1200ms ease-out;
 }
 
 @keyframes sec04RowPop {
