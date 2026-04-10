@@ -1294,6 +1294,10 @@ body {
 }
 .arrow-down {
     cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .arrow-down img {
     height: 22.63px;

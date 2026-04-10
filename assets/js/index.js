@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const mqMobileSlider = window.matchMedia("(max-width: 768px)");
+    const mqReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function mqListen(mq, handler) {
+        if (typeof mq.addEventListener === "function") mq.addEventListener("change", handler);
+        else mq.addListener(handler);
+    }
+
     // ------------------------------
-    // Section 01 슬라이더(기존)
+    // Section 01 슬라이더(기존) — 768px 이하에서 자동 재생(수동 조작 시 타이머 리셋)
     // ------------------------------
     const track = document.querySelector(".slider-track");
     const slides = document.querySelectorAll(".slide");
@@ -11,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (track && slides.length && prevBtn && nextBtn && dots.length) {
         let currentIndex = 0;
         const totalSlides = slides.length;
+        let promiseAutoplayId = null;
+        const PROMISE_AUTOPLAY_MS = 3000;
 
         function updateSlider() {
             const slideWidth = slides[0].clientWidth;
@@ -21,23 +31,50 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        prevBtn.addEventListener("click", () => {
+        function goNextSlide() {
+            currentIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+            updateSlider();
+        }
+
+        function goPrevSlide() {
             if (currentIndex > 0) {
                 currentIndex--;
                 updateSlider();
             }
+        }
+
+        function clearPromiseAutoplay() {
+            if (promiseAutoplayId !== null) {
+                window.clearInterval(promiseAutoplayId);
+                promiseAutoplayId = null;
+            }
+        }
+
+        function startPromiseAutoplay() {
+            clearPromiseAutoplay();
+            if (!mqMobileSlider.matches || mqReducedMotion.matches) return;
+            promiseAutoplayId = window.setInterval(goNextSlide, PROMISE_AUTOPLAY_MS);
+        }
+
+        function restartPromiseAutoplay() {
+            startPromiseAutoplay();
+        }
+
+        prevBtn.addEventListener("click", () => {
+            goPrevSlide();
+            restartPromiseAutoplay();
         });
 
         nextBtn.addEventListener("click", () => {
-            // 마지막 슬라이드에서 더 누르면 처음으로 순환
-            currentIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
-            updateSlider();
+            goNextSlide();
+            restartPromiseAutoplay();
         });
 
         dots.forEach((dot, index) => {
             dot.addEventListener("click", () => {
                 currentIndex = index;
                 updateSlider();
+                restartPromiseAutoplay();
             });
         });
 
@@ -47,9 +84,89 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 track.style.transition = "transform 0.5s ease-in-out";
             }, 50);
+            startPromiseAutoplay();
         });
 
+        mqListen(mqMobileSlider, () => startPromiseAutoplay());
+        mqListen(mqReducedMotion, () => startPromiseAutoplay());
+
         updateSlider();
+        startPromiseAutoplay();
+    }
+
+    // ------------------------------
+    // 리뷰 영역 — 768px 이하 가로 스크롤 시 자동 넘김(스크롤 후 타이머 리셋)
+    // ------------------------------
+    const reviewTrack = document.querySelector(".review-track");
+    const reviewCards = reviewTrack ? [...reviewTrack.querySelectorAll(".review-card")] : [];
+    const mqMobileReview = window.matchMedia("(max-width: 768px)");
+    let reviewAutoplayId = null;
+    let reviewScrollResetId = null;
+    const REVIEW_AUTOPLAY_MS = 2500;
+    const REVIEW_SCROLL_IDLE_MS = 180;
+
+    function getReviewActiveIndex() {
+        if (!reviewTrack || reviewCards.length === 0) return 0;
+        const trackRect = reviewTrack.getBoundingClientRect();
+        const mid = trackRect.left + trackRect.width / 2;
+        let best = 0;
+        let bestDist = Infinity;
+        reviewCards.forEach((card, i) => {
+            const r = card.getBoundingClientRect();
+            const cMid = r.left + r.width / 2;
+            const d = Math.abs(cMid - mid);
+            if (d < bestDist) {
+                bestDist = d;
+                best = i;
+            }
+        });
+        return best;
+    }
+
+    function advanceReviewCarousel() {
+        if (!reviewTrack || reviewCards.length === 0) return;
+        const next = (getReviewActiveIndex() + 1) % reviewCards.length;
+        const behavior = mqReducedMotion.matches ? "auto" : "smooth";
+        reviewCards[next].scrollIntoView({ behavior, inline: "center", block: "nearest" });
+    }
+
+    function clearReviewAutoplay() {
+        if (reviewAutoplayId !== null) {
+            window.clearInterval(reviewAutoplayId);
+            reviewAutoplayId = null;
+        }
+    }
+
+    function startReviewAutoplay() {
+        clearReviewAutoplay();
+        if (!mqMobileReview.matches || mqReducedMotion.matches) return;
+        if (!reviewTrack || reviewCards.length < 2) return;
+        reviewAutoplayId = window.setInterval(advanceReviewCarousel, REVIEW_AUTOPLAY_MS);
+    }
+
+    function restartReviewAutoplaySoon() {
+        clearReviewAutoplay();
+        window.clearTimeout(reviewScrollResetId);
+        reviewScrollResetId = window.setTimeout(() => {
+            startReviewAutoplay();
+        }, REVIEW_SCROLL_IDLE_MS);
+    }
+
+    if (reviewTrack && reviewCards.length) {
+        reviewTrack.addEventListener(
+            "scroll",
+            () => {
+                if (!mqMobileReview.matches) return;
+                restartReviewAutoplaySoon();
+            },
+            { passive: true }
+        );
+
+        window.addEventListener("resize", () => startReviewAutoplay());
+        mqListen(mqMobileReview, () => startReviewAutoplay());
+        mqListen(mqReducedMotion, () => startReviewAutoplay());
+
+        startReviewAutoplay();
     }
 
     // ------------------------------
