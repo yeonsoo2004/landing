@@ -310,7 +310,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .coin {
+    .coin,
+    .sec04-coin {
         animation: none;
     }
 }
@@ -652,15 +653,86 @@ body {
    Section 04 (실시간 신청자 현황)
 ========================================= */
 .section04 {
-    background-image: url('../images/sec04-bg.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+    position: relative;
+    background-color: #ffffff;
     padding: 100px 0;
-    background-color: #fafafa;
+    overflow: hidden;
+}
+
+/* sec04-bg.png에 있던 코인 배치를 참고한 장식 (KV와 동일 coin.svg + kvCoinFloat) */
+.sec04-coins {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sec04-coin {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.9;
+    width: auto;
+    height: auto;
+    will-change: transform;
+    animation: kvCoinFloat 5.8s ease-in-out infinite;
+    --coin-float: 12px;
+    --coin-rot2: 6deg;
+}
+
+.sec04-coin--1 {
+    left: 5%;
+    top: 30%;
+    width: 66px;
+    --coin-rot: 14deg;
+    --coin-float: 11px;
+    animation-duration: 6.4s;
+    animation-delay: -1.2s;
+}
+
+.sec04-coin--2 {
+    left: 20%;
+    top: 10%;
+    width: 70px;
+    --coin-rot: 18deg;
+    --coin-float: 14px;
+    animation-duration: 7s;
+    animation-delay: -2.4s;
+}
+
+.sec04-coin--3 {
+    left: 50%;
+    top: 5%;
+    width: 74px;
+    margin-left: -22px;
+    --coin-rot: 32deg;
+    --coin-float: 13px;
+    animation-duration: 6.8s;
+    animation-delay: -0.9s;
+}
+
+.sec04-coin--4 {
+    left: 70%;
+    top: 30%;
+    width: 68px;
+    --coin-rot: -16deg;
+    --coin-float: 12px;
+    animation-duration: 7.5s;
+    animation-delay: -3.1s;
+}
+
+.sec04-coin--5 {
+    left: 88%;
+    top: 5%;
+    width: 64px;
+    --coin-rot: -12deg;
+    --coin-float: 10px;
+    animation-duration: 6.1s;
+    animation-delay: -1.7s;
 }
 
 .sec04-inner {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
@@ -1220,7 +1292,9 @@ body {
     align-items: center;
     gap: 30px;
 }
-
+.arrow-down {
+    cursor: pointer;
+}
 .arrow-down img {
     height: 22.63px;
     width: 22.63px;
@@ -1664,7 +1738,35 @@ body {
     /* 04영역 */
     .section04 {
         padding: 70px 0;
-        background-position: center top;
+    }
+
+    .sec04-coin--1 {
+        width: 30px;
+        top: 28%;
+    }
+
+    .sec04-coin--2 {
+        width: 34px;
+        top: 8%;
+        left: 18%;
+    }
+
+    .sec04-coin--3 {
+        width: 36px;
+        margin-left: -18px;
+        top: 6%;
+    }
+
+    .sec04-coin--4 {
+        width: 32px;
+        left: 72%;
+        top: 28%;
+    }
+
+    .sec04-coin--5 {
+        width: 28px;
+        left: 86%;
+        top: 4%;
     }
 
     .sec04-inner {
