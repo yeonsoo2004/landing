@@ -736,15 +736,15 @@ body {
     --faq-answer-indent: 100px;
 }
 
-/* FAQ 리스트 전체 껍데기 */
+/* FAQ 리스트 전체 껍데기 — 상단 구분선만 (항목마다 top+bottom 주면 선이 이중·삼중으로 겹침) */
 .faq-wrap {
-    border-top: 1px solid #22c597;
+    border-top: 2px solid #22c597;
 }
 
-/* 개별 FAQ 항목 */
+/* 개별 FAQ 항목 — 하단 구분선만으로 리스트 연결 */
 .faq-item {
-    border-top: 2px solid #22C597;
-    border-bottom: 1px solid #22C597;
+    border-top: none;
+    border-bottom: 1px solid #22c597;
 }
 
 /* 질문(Q) 제목 영역 */
@@ -778,15 +778,41 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* 패널: Grid 0fr→1fr로 높이는 콘텐츠에 맡김(JS 픽셀 높이 계산 불필요, 반복 열림 버그 방지) */
+.faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.faq-item.active .faq-panel {
+    grid-template-rows: 1fr;
+}
+
 .faq-content {
-    /* 애니메이션은 JS에서 height/padding을 직접 제어(버벅임/점프 방지) */
-    display: block;
-    height: 0;
+    min-height: 0;
     overflow: hidden;
-    opacity: 0;
+    box-sizing: border-box;
     padding: 0;
     background-color: #fcfcfc;
-    will-change: height, padding, opacity;
+    transition: padding 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.faq-item.active .faq-content {
+    padding-top: var(--faq-answer-pt);
+    padding-right: var(--faq-answer-pr);
+    padding-bottom: var(--faq-answer-pb);
+    padding-left: var(--faq-answer-pl);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-panel,
+    .faq-content {
+        transition-duration: 0.01ms;
+    }
 }
 
 .faq-item.active .arrow img {
@@ -797,6 +823,336 @@ body {
 .faq-content > p {
     padding-left: var(--faq-answer-indent);
     word-break: keep-all;
+    line-height: 1.6;
+}
+
+/* =========================================
+   Section CTA : 맞춤 혜택 신청 (FAQ 하단)
+========================================= */
+.section-cta {
+    width: 100%;
+    padding: 80px 0 120px;
+    box-sizing: border-box;
+    background-color: var(--color-cta-section-bg);
+}
+
+.section-cta .inner {
+    padding: 0 20px;
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+    gap: 48px 64px;
+    align-items: center;
+}
+
+.cta-copy {
+    display: flex;
+    gap: 32px;
+}
+
+.cta-title {
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.cta-visual {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cta-visual img {
+    max-width: min(100%, 320px);
+    height: auto;
+    display: block;
+}
+
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.cta-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cta-label {
+    font-weight: 600;
+}
+
+.cta-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    border: 1px solid var(--color-input-border);
+    background-color: var(--color-surface);
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.cta-input::placeholder {
+    color: var(--color-placeholder);
+}
+
+.cta-input:focus {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+.cta-agree-box {
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--color-input-border);
+    background-color: var(--color-surface);
+    overflow: hidden;
+}
+
+.cta-agree-list {
+    list-style: none;
+    margin: 0;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cta-agree-item {
+    margin: 0;
+    padding: 0;
+}
+
+.cta-check-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.cta-check-label span {
+    flex: 1;
+    min-width: 0;
+}
+
+.cta-checkbox {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15em;
+    border-radius: 50%;
+    border: 2px solid var(--color-input-border);
+    background-color: var(--color-surface);
+    accent-color: var(--color-focus-ring);
+    cursor: pointer;
+}
+
+.cta-submit-btn {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cta-submit-btn:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   Site footer (CTA 하단)
+========================================= */
+.site-footer {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.site-footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px 48px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.site-footer__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    flex: 0 1 auto;
+}
+
+.site-footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.site-footer__row--links {
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 6px;
+}
+
+.site-footer__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-footer__link:hover,
+.site-footer__link:focus-visible {
+    text-decoration: underline;
+}
+
+.site-footer__link:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+.site-footer__link--policy {
+    font-weight: 700;
+}
+
+.site-footer__sep {
+    padding: 0 0.45em;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.site-footer__sns {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+    align-items: center;
+}
+
+.site-footer__sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-footer__sns-link img {
+    display: block;
+    width: 32px;
+    height: auto;
+}
+
+.site-footer__sns-link:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.site-footer__right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: flex-end;
+    text-align: right;
+    min-width: 0;
+    flex: 0 1 52%;
+}
+
+.site-footer__biz-line,
+.site-footer__copyright {
+    margin: 0;
+}
+
+.site-footer__biz-line + .site-footer__biz-line {
+    margin-top: 6px;
+}
+
+.site-footer__copyright {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.site-footer__marks {
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.site-footer__mark {
+    gap: 12px;
+    align-items: center;
+    max-width: 100%;
+}
+
+.site-footer__mark-img {
+    flex-shrink: 0;
+    width: 56px;
+    height: auto;
+    object-fit: contain;
+}
+
+.site-footer__mark-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        font-size: 13px;
+    }
+
+    .site-footer__inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-footer__left {
+        align-items: center;
+    }
+
+    .site-footer__row--links {
+        justify-content: center;
+    }
+
+    .site-footer__sns {
+        justify-content: center;
+    }
+
+    .site-footer__right {
+        align-items: center;
+        text-align: center;
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .site-footer__marks {
+        justify-content: center;
+    }
+
+    .site-footer__mark {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-footer__mark-copy {
+        text-align: center;
+    }
 }
 
 
@@ -814,7 +1170,37 @@ body {
 }
 
 @media (max-width: 1280px) {
+    .ft-28 { font-size: 1.375rem; }
+
+    .section04 {
+        padding: 85px 0;
+    }
+
+    .sec04-header {
+        margin-bottom: 42px;
+    }
+
+    .status-table th,
+    .status-table td {
+        padding: 18px 12px;
+        font-size: 0.9375rem;
+    }
+
+    .status-badge {
+        font-size: 0.9375rem;
+        padding: 7px 14px;
+    }
+
+    .section-cta {
+        padding: 72px 0 100px;
+    }
+
+    .cta-grid {
+        gap: 36px 48px;
+    }
+
     .section06 {
+        padding: 85px 0;
         --faq-answer-pt: 26px;
         --faq-answer-pr: 20px;
         --faq-answer-pb: 34px;
@@ -827,7 +1213,9 @@ body {
     body {
         padding-top: 100px;
     }
-
+    .inner {
+        padding: 0 20px;
+    }
     .nav {
         padding: 30px 20px;
     }
@@ -866,12 +1254,46 @@ body {
         height: 408px;
     }
 
+    .section04 {
+        padding: 75px 0;
+    }
+
+    .sec04-header {
+        margin-bottom: 36px;
+    }
+
+    .status-table th,
+    .status-table td {
+        padding: 17px 10px;
+        font-size: 0.875rem;
+    }
+
+    .section-cta {
+        padding: 64px 0 90px;
+    }
+
+    .cta-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 28px 36px;
+    }
+
+    .cta-copy {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
     .section06 {
+        padding: 75px 0;
         --faq-answer-pt: 22px;
         --faq-answer-pr: 18px;
         --faq-answer-pb: 30px;
         --faq-answer-pl: 18px;
         --faq-answer-indent: 84px;
+    }
+
+    .faq-title {
+        padding: 26px 16px;
     }
 }
 
@@ -889,6 +1311,10 @@ body {
     /* 모바일 헤더 높이(약 54px)에 맞춰 */
     body {
         padding-top: 54px;
+    }
+
+    .inner {
+        padding: 0 144px;
     }
 
     .new_logo span {
@@ -977,6 +1403,10 @@ body {
         background-color: #22C597;
         padding: 44px 16px 0 16px;
         height: auto;
+    }
+
+    .kv-font {
+        font-size: 4rem;
     }
 
     .kv.mg-bottom-200 {
@@ -1165,6 +1595,11 @@ body {
         background-position: center top;
     }
 
+    .sec04-inner {
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
     .sec04-header {
         margin-bottom: 30px;
     }
@@ -1176,17 +1611,23 @@ body {
     }
 
     .status-table {
-        min-width: 640px; /* 4컬럼 유지하면서 너무 촘촘해지지 않게 */
+        min-width: 560px;
     }
 
     .status-table th {
-        padding: 16px 10px;
-        font-size: 16px;
+        padding: 14px 8px;
+        font-size: 0.875rem;
     }
 
     .status-table td {
-        padding: 16px 10px;
-        font-size: 14px;
+        padding: 14px 8px;
+        font-size: 0.8125rem;
+    }
+
+    .status-badge {
+        font-size: 0.8125rem;
+        padding: 6px 12px;
+        min-width: 72px;
     }
 
     /* 05영역 */
@@ -1212,10 +1653,11 @@ body {
     ========================================= */
     .section06 {
         padding: 60px 0;
-    }
-
-    .sec06-inner {
-        padding: 0 16px;
+        --faq-answer-pt: 18px;
+        --faq-answer-pr: 10px;
+        --faq-answer-pb: 26px;
+        --faq-answer-pl: 10px;
+        --faq-answer-indent: min(72px, 14vw);
     }
 
     .faq-title {
@@ -1223,17 +1665,15 @@ body {
     }
 
     .faq-title .ft-28 {
-        width: 90%;
+        width: auto;
+        flex: 1;
+        min-width: 0;
         word-break: keep-all;
     }
 
     .arrow img,
     .arrow-down img {
         width: 16px;
-    }
-
-    .faq-content {
-        padding: 0;
     }
 
     /* 모바일 여백 무효화 */
@@ -1246,26 +1686,109 @@ body {
         padding-left: var(--faq-answer-indent);
     }
 
-    .section06 {
-        --faq-answer-pt: 18px;
-        --faq-answer-pr: 10px;
-        --faq-answer-pb: 26px;
-        --faq-answer-pl: 10px;
-        --faq-answer-indent: min(72px, 14vw);
+    .section-cta {
+        padding: 56px 0 80px;
+    }
+
+    .section-cta .inner {
+        padding: 0 144px;
+    }
+
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .cta-copy {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .cta-visual {
+        justify-content: center;
+    }
+
+    .cta-visual img {
+        max-width: min(100%, 240px);
+    }
+
+    .cta-copy-text {
+        text-align: center;
+    }
+
+    .cta-agree-list {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+
+    .cta-input {
+        font-size: 0.9375rem;
+        padding: 14px 16px;
+    }
+
+    .site-footer .inner.site-footer__inner {
+        padding: 40px 20px;
+        box-sizing: border-box;
     }
 }
 
 @media (max-width: 540px) {
+    .kv-font { font-size: 3rem; }
+
+    .inner {
+        padding: 0 16px;
+    }
+
+    .section04 {
+        padding: 56px 0;
+    }
+
+    .sec04-inner {
+        padding: 0 12px;
+    }
+
+    .status-table {
+        min-width: 520px;
+    }
+
     .section06 {
         padding: 50px 0;
         --faq-answer-pt: 16px;
         --faq-answer-pr: 10px;
-        --faq-answer-pb: 22px;
+        --faq-answer-pb: 24px;
         --faq-answer-pl: 10px;
         --faq-answer-indent: min(56px, 13vw);
     }
 
     .faq-title {
         padding: 18px 10px;
+    }
+
+    .section-cta {
+        padding: 48px 0 64px;
+    }
+
+    .section-cta .inner {
+        padding: 0 12px;
+    }
+
+    .cta-submit-btn {
+        font-size: 1.125rem;
+        padding: 18px 24px;
+    }
+
+    .site-footer {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .site-footer .inner.site-footer__inner {
+        padding: 32px 16px;
+    }
+
+    .site-footer__mark-copy {
+        font-size: 11px;
     }
 }
