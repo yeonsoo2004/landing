@@ -37,7 +37,7 @@ body {
 .nav {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 30px 0;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -225,9 +225,11 @@ body {
     0% {
         transform: translate3d(0, 0, 0) rotate(var(--coin-rot, 0deg));
     }
+
     50% {
         transform: translate3d(0, calc(var(--coin-float, 12px) * -1), 0) rotate(calc(var(--coin-rot, 0deg) + var(--coin-rot2, 6deg)));
     }
+
     100% {
         transform: translate3d(0, 0, 0) rotate(var(--coin-rot, 0deg));
     }
@@ -310,6 +312,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .coin,
     .sec04-coin {
         animation: none;
@@ -395,22 +398,25 @@ body {
     position: relative;
     width: 100%;
     border-radius: 30px;
-    overflow: hidden; 
-    background-color: #E6F8F0; 
+    overflow: hidden;
+    background: linear-gradient(to bottom,
+            rgba(194, 246, 228, 0.4) 0%,
+            rgba(194, 246, 228, 1) 40%,
+            rgba(194, 246, 228, 1) 94%);
 }
 
 .slider-track {
     width: 100%;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-    min-width: 100%; 
+    min-width: 100%;
     height: 508px;
     align-items: center;
     justify-content: center;
-    gap: 20%; 
-    padding: 0 100px; 
+    gap: 20%;
+    padding: 0 100px;
     box-sizing: border-box;
 }
 
@@ -425,8 +431,98 @@ body {
     border-radius: 30px;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     justify-content: space-between;
+}
+
+/* 2번째 슬라이드 채팅 말풍선 */
+.chat-area {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 380px;
+}
+
+.chat-bubble {
+    position: relative;
+    padding: 20px 28px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+.chat-bubble--user {
+    background-color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-bubble--user::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -12px;
+    width: 14px;
+    height: 22px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0c0 10 7 22 14 22H0z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.chat-bubble--reply {
+    background-color: #22C597;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    margin-left: 20px;
+}
+
+.chat-bubble--reply::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -12px;
+    width: 14px;
+    height: 22px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 0c0 10-7 22-14 22h14z' fill='%2322C597'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* 3번째 슬라이드 휴대폰 목업 */
+.phone-area {
+    position: relative;
+    width: 420px;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+.phone-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.phone-checklist {
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    gap: 32px;
+    width: 72%;
+    padding-top: 20px;
+}
+
+.phone-check-item {
+    align-items: center;
+    gap: 14px;
+}
+
+.phone-check-item img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.phone-check-item span {
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .pagination {
@@ -437,9 +533,11 @@ body {
     gap: 12px;
     z-index: 5;
 }
+
 .text-area {
     text-align: center;
 }
+
 .dot {
     width: 12px;
     height: 12px;
@@ -466,8 +564,13 @@ body {
     z-index: 10;
 }
 
-.arrow-prev { left: 24px; }
-.arrow-next { right: 24px; }
+.arrow-prev {
+    left: 24px;
+}
+
+.arrow-next {
+    right: 24px;
+}
 
 
 /* =========================================
@@ -766,7 +869,7 @@ body {
     font-size: 1rem;
 }
 
-.status-table th + th {
+.status-table th+th {
     border-left: 1px solid rgba(255, 255, 255, 0.55);
 }
 
@@ -813,6 +916,7 @@ body {
         transform: translateY(6px);
         background-color: rgba(34, 197, 151, 0.10);
     }
+
     to {
         transform: translateY(0);
         background-color: transparent;
@@ -936,6 +1040,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .faq-panel,
     .faq-content {
         transition-duration: 0.01ms;
@@ -947,7 +1052,7 @@ body {
 }
 
 /* 답변 문단 들여쓰기(약 100px) */
-.faq-content > p {
+.faq-content>p {
     padding-left: var(--faq-answer-indent);
     word-break: keep-all;
     line-height: 1.6;
@@ -1196,7 +1301,7 @@ body {
     margin: 0;
 }
 
-.site-footer__biz-line + .site-footer__biz-line {
+.site-footer__biz-line+.site-footer__biz-line {
     margin-top: 6px;
 }
 
@@ -1292,6 +1397,7 @@ body {
     align-items: center;
     gap: 30px;
 }
+
 .arrow-down {
     cursor: pointer;
     text-decoration: none;
@@ -1299,16 +1405,23 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .arrow-down img {
     height: 22.63px;
     width: 22.63px;
 }
 
 @media (max-width: 1280px) {
-    .ft-28 { font-size: 1.33rem; }
+    .ft-28 {
+        font-size: 1.33rem;
+    }
+    .nav {
+        padding: 30px 20px;
+    }
     .inner {
         padding: 0 20px;
     }
+
     .section04 {
         padding: 85px 0;
     }
@@ -1344,6 +1457,7 @@ body {
         --faq-answer-pl: 20px;
         --faq-answer-indent: 92px;
     }
+
     .site-footer {
         padding: 40px 0;
     }
@@ -1358,12 +1472,15 @@ body {
     body {
         padding-top: 100px;
     }
+
     .inner {
         padding: 0 20px;
     }
+
     .nav {
         padding: 20px 16px;
     }
+
     /* body padding-top 중복/불일치 방지 (앵커 오프셋도 위에서 함께 관리) */
     .coin {
         width: auto;
@@ -1398,6 +1515,10 @@ body {
     .model-bg::before {
         width: 560px;
         height: 520px;
+    }
+
+    .phone-area {
+        width: 350px;
     }
 
     .section04 {
@@ -1536,8 +1657,8 @@ body {
         padding: 15px 10px;
     }
 
-    /* 햄버거메뉴 X표시 (주석 해제 필요시 사용) */
-    /* .menu-checkbox:checked + .hamburger-icon span:nth-child(1) {
+    /* 햄버거메뉴 X표시  */
+    .menu-checkbox:checked + .hamburger-icon span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
     .menu-checkbox:checked + .hamburger-icon span:nth-child(2) {
@@ -1545,7 +1666,7 @@ body {
     }
     .menu-checkbox:checked + .hamburger-icon span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
-    } */
+    }
 
     /* kv영역 */
     .kv {
@@ -1587,7 +1708,6 @@ body {
         margin-bottom: 25px;
     }
 
-    /* 모델: 하단 약 1/3은 보이지 않게(상단 위주 노출). HTML 변경 없이 clip + object-fit으로 처리 */
     .kv-right {
         width: 100%;
         transform: translateY(40px);
@@ -1614,7 +1734,6 @@ body {
         --model-w: min(340px, 92vw);
         width: var(--model-w);
         max-width: 100%;
-        /* 세로 모델 비율이 대략 2:3일 때, 박스 높이 ≈ 가로폭이면 cover+top 기준 하단 약 1/3이 잘림 */
         height: calc(var(--model-w) * 1);
         max-height: none;
         object-fit: cover;
@@ -1622,6 +1741,7 @@ body {
         display: block;
         flex-shrink: 0;
     }
+    .coin4 {display: none;}
 
     /* kv 끝 */
 
@@ -1641,16 +1761,20 @@ body {
     .card img {
         height: clamp(110px, 32vw, 160px);
     }
-    
+
     /* sec01 */
     .promise-section {
-        padding: 60px 0; /* 위아래 여백 축소 */
+        padding: 60px 0;
+        /* 위아래 여백 축소 */
     }
 
     .slide {
-        flex-direction: column; /* 좌우 배치를 위아래 배치로 변경 */
-        height: auto; /* 내용물 길이에 맞춰 높이 자동 조절 */
-        padding: 60px 20px 80px 20px; /* 하단에 닷(dot)이 들어갈 공간 확보 */
+        flex-direction: column;
+        /* 좌우 배치를 위아래 배치로 변경 */
+        height: auto;
+        /* 내용물 길이에 맞춰 높이 자동 조절 */
+        padding: 60px 20px 80px 20px;
+        /* 하단에 닷(dot)이 들어갈 공간 확보 */
         gap: 40px;
         text-align: center;
     }
@@ -1664,15 +1788,72 @@ body {
         width: 80%;
     }
 
+    .chat-area {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        align-items: stretch;
+    }
+
+    .chat-bubble {
+        padding: 16px 22px;
+    }
+
+    .chat-bubble--user {
+        align-self: flex-end;
+    }
+
+    .chat-bubble--reply {
+        align-self: flex-start;
+        margin-left: 0;
+    }
+
+    /* 3번째 슬라이드만: 휴대폰을 슬라이드 콘텐츠 영역 하단에 붙임(닷 영역 위) */
+    .slide:has(.phone-area) {
+        min-height: min(520px, 85vh);
+        justify-content: flex-start;
+    }
+
+    .slide:has(.phone-area) .phone-area {
+        margin-top: auto;
+        align-self: center;
+    }
+
+    .phone-area {
+        width: 240px;
+        margin: 0 auto;
+        align-self: center;
+    }
+
+    .phone-checklist {
+        gap: 20px;
+    }
+
+    .phone-check-item img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .phone-check-item span {
+        font-size: 0.8rem;
+    }
+
     /* 화살표 버튼 크기 축소 및 위치 조정 */
     .promise-arrow-btn {
         display: none;
     }
 
-    .arrow-prev { left: 10px; }
-    .arrow-next { right: 10px; }
-    
-    .pagination { bottom: 20px; }
+    .arrow-prev {
+        left: 10px;
+    }
+
+    .arrow-next {
+        right: 10px;
+    }
+
+    .pagination {
+        bottom: 20px;
+    }
 
     /* 혜택 */
     .section02 .mg-auto-1440 {
@@ -1862,7 +2043,7 @@ body {
         padding-top: 15px;
     }
 
-    .faq-content > p {
+    .faq-content>p {
         padding-left: var(--faq-answer-indent);
     }
 
@@ -1953,10 +2134,30 @@ body {
 }
 
 @media (max-width: 540px) {
-    .kv-font { font-size: 3rem; }
+    .kv-font {
+        font-size: 3rem;
+    }
+    .coin4 {display: none;}
 
     .inner {
         padding: 0 16px;
+    }
+
+    .chat-area {
+        max-width: 280px;
+    }
+
+    .phone-checklist {
+        gap: 14px;
+    }
+
+    .phone-check-item img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .phone-check-item span {
+        font-size: 0.75rem;
     }
 
     .section04 {
@@ -1967,8 +2168,32 @@ body {
         padding: 0 12px;
     }
 
+    .table-wrapper {
+        overflow-x: hidden;
+    }
+
     .status-table {
-        min-width: 520px;
+        min-width: 0;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .status-table th,
+    .status-table td {
+        padding: 10px 4px;
+        font-size: 0.75rem;
+        line-height: 1.35;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    .status-badge {
+        font-size: 0.6875rem;
+        padding: 5px 8px;
+        min-width: 0;
+        white-space: normal;
+        display: inline-block;
+        max-width: 100%;
     }
 
     .section06 {
