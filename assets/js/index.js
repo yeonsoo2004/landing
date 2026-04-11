@@ -127,7 +127,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!reviewTrack || reviewCards.length === 0) return;
         const next = (getReviewActiveIndex() + 1) % reviewCards.length;
         const behavior = mqReducedMotion.matches ? "auto" : "smooth";
-        reviewCards[next].scrollIntoView({ behavior, inline: "center", block: "nearest" });
+        const track = reviewTrack;
+        const card = reviewCards[next];
+        // scrollIntoView는 가로 스크롤러 안에서도 문서 세로 스크롤을 유발할 수 있음(위 섹션 보는 중 리뷰로 점프).
+        // 트랙 내부만 scrollLeft로 이동해 세로 위치는 유지.
+        const cardRect = card.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        const delta = cardRect.left + cardRect.width / 2 - (trackRect.left + trackRect.width / 2);
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        const nextLeft = Math.max(0, Math.min(track.scrollLeft + delta, maxScroll));
+        track.scrollTo({ left: nextLeft, behavior });
     }
 
     function clearReviewAutoplay() {

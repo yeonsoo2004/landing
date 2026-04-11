@@ -1723,6 +1723,8 @@ body {
         gap: 20px;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        /* 가로 캐러셀 레이아웃 변화 시 스크롤 앵커가 본문 세로 스크롤을 끌어당기는 것 방지 */
+        overflow-anchor: none;
     }
 
     .review-track::-webkit-scrollbar {
