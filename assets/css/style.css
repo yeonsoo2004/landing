@@ -20,6 +20,20 @@ body {
     html {
         scroll-behavior: auto;
     }
+
+    .coin,
+    .sec04-coin {
+        animation: none;
+    }
+
+    .faq-panel,
+    .faq-content {
+        transition-duration: 0.01ms;
+    }
+
+    .scroll-top-btn {
+        transition: none;
+    }
 }
 
 /* =========================================
@@ -165,12 +179,10 @@ body {
     width: 50%;
     min-width: 0;
     height: 100%;
-    /* 모델을 바닥에 붙이기 위해 전체 높이 사용 */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* 모델 이미지가 컨테이너 바닥에 딱 붙게 정렬 */
 }
 
 /* --- 모델 뒤 배경 효과 --- */
@@ -180,9 +192,7 @@ body {
     width: 500px;
     height: 450px;
     background-color: rgba(255, 255, 255, 0.08);
-    /* 투명한 흰색 겹침 효과 */
     border-radius: 250px 250px 0 0;
-    /* 윗부분만 둥글게 처리 */
     z-index: 1;
 }
 
@@ -236,7 +246,6 @@ body {
 }
 
 .kv .coin {
-    /* 기본값(각 코인별로 override) */
     --coin-float: 12px;
     --coin-rot2: 6deg;
 }
@@ -311,13 +320,6 @@ body {
     animation-delay: -1.1s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-    .coin,
-    .sec04-coin {
-        animation: none;
-    }
-}
 
 /* =========================================
    About 영역
@@ -333,10 +335,8 @@ body {
     width: 100%;
     margin: 0 auto;
     gap: 24px;
-    /* 카드 사이의 간격 */
     justify-content: center;
     min-width: 0;
-    /* flex 컨테이너가 부모 폭을 넘지 않도록 */
 }
 
 .card {
@@ -355,7 +355,6 @@ body {
 .card-title {
     margin-bottom: 16px;
     word-break: keep-all;
-    /* 단어 단위로 줄바꿈 되도록 설정 */
 }
 
 /* 카드별 이미지 하단 여백 설정 */
@@ -378,7 +377,6 @@ body {
 }
 
 /* sec01 */
-/* 섹션 기본 여백 */
 .promise-section {
     padding-bottom: 200px;
     width: 100%;
@@ -616,7 +614,6 @@ body {
 
 .card-logo {
     height: 60px;
-    /* 로고 영역의 높이를 통일하여 텍스트 시작선을 맞춤 */
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -736,7 +733,6 @@ body {
 .review-text {
     margin-bottom: 40px;
     word-break: keep-all;
-    /* 단어 단위 줄바꿈 */
 }
 
 .customer-info {
@@ -762,7 +758,6 @@ body {
     overflow: hidden;
 }
 
-/* sec04-bg.png에 있던 코인 배치를 참고한 장식 (KV와 동일 coin.svg + kvCoinFloat) */
 .sec04-coins {
     position: absolute;
     inset: 0;
@@ -875,7 +870,6 @@ body {
 
 .status-table td {
     padding: 20px 10px;
-    /* 본문(실시간 행): 세로선 없이 가로선만 */
     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
     color: #121212;
     font-size: 1rem;
@@ -967,12 +961,12 @@ body {
     --faq-answer-indent: 100px;
 }
 
-/* FAQ 리스트 전체 껍데기 — 상단 구분선만 (항목마다 top+bottom 주면 선이 이중·삼중으로 겹침) */
+/* FAQ 리스트 전체 껍데기 */
 .faq-wrap {
     border-top: 2px solid #22c597;
 }
 
-/* 개별 FAQ 항목 — 하단 구분선만으로 리스트 연결 */
+/* 개별 FAQ 항목 */
 .faq-item {
     border-top: none;
     border-bottom: 1px solid #22c597;
@@ -990,7 +984,6 @@ body {
 .faq-title>span.ft-28 {
     flex: 1;
     min-width: 0;
-    /* 긴 질문이 flex 줄에서 줄바꿈되도록 */
 }
 
 .faq-title .arrow {
@@ -1009,7 +1002,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* 패널: Grid 0fr→1fr로 높이는 콘텐츠에 맡김(JS 픽셀 높이 계산 불필요, 반복 열림 버그 방지) */
 .faq-panel {
     display: grid;
     grid-template-rows: 0fr;
@@ -1037,14 +1029,6 @@ body {
     padding-right: var(--faq-answer-pr);
     padding-bottom: var(--faq-answer-pb);
     padding-left: var(--faq-answer-pl);
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .faq-panel,
-    .faq-content {
-        transition-duration: 0.01ms;
-    }
 }
 
 .faq-item.active .arrow img {
@@ -1374,22 +1358,6 @@ body {
     outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
-    .scroll-top-btn {
-        right: 16px;
-        bottom: 16px;
-        width: 48px;
-        height: 48px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .scroll-top-btn {
-        transition: none;
-    }
-}
-
-
 /* Footer 부분 */
 .sec06-footer {
     display: flex;
@@ -1621,17 +1589,14 @@ body {
     /* PC 메뉴(.gnb) 숨기고 모바일 세로 메뉴로 변경 */
     .gnb {
         display: none;
-        /* 평소에는 닫혀 있음 */
         position: absolute;
         top: 100%;
-        /* 헤더 바로 아래부터 시작 */
         left: 0;
         width: 100%;
         background-color: #ffffff;
         flex-direction: column;
         align-items: center;
         padding: 30px 16px 40px;
-        /* 메뉴 내부도 좌우 16px 적용 */
         border-bottom: 2px solid #22C597;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
@@ -1770,11 +1735,8 @@ body {
 
     .slide {
         flex-direction: column;
-        /* 좌우 배치를 위아래 배치로 변경 */
         height: auto;
-        /* 내용물 길이에 맞춰 높이 자동 조절 */
         padding: 60px 20px 80px 20px;
-        /* 하단에 닷(dot)이 들어갈 공간 확보 */
         gap: 40px;
         text-align: center;
     }
@@ -1808,7 +1770,7 @@ body {
         margin-left: 0;
     }
 
-    /* 3번째 슬라이드만: 휴대폰을 슬라이드 콘텐츠 영역 하단에 붙임(닷 영역 위) */
+    /* 3번째 슬라이드 */
     .slide:has(.phone-area) {
         min-height: min(520px, 85vh);
         justify-content: flex-start;
@@ -1860,7 +1822,6 @@ body {
         box-sizing: border-box;
     }
 
-    /* PC의 넓은 200px 하단 여백을 모바일에 맞게 60px로 축소 */
     .section02 .mg-bottom-200 {
         margin-bottom: 60px;
     }
@@ -1869,7 +1830,6 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        /* 세로 카드 사이의 간격 */
     }
 
     .benefit-card {
@@ -1904,7 +1864,6 @@ body {
         gap: 20px;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        /* 가로 캐러셀 레이아웃 변화 시 스크롤 앵커가 본문 세로 스크롤을 끌어당기는 것 방지 */
         overflow-anchor: none;
     }
 
@@ -1995,17 +1954,14 @@ body {
     .section05 {
         height: auto;
         padding: 70px 16px;
-        /* 고정 높이 대신 패딩으로 자연 축소 */
     }
 
     .sec05-main {
         gap: 20px;
-        /* 요소 간격 축소 */
     }
 
     .sec05-banner-box {
         padding: 15px 30px;
-        /* 모바일 화면에 맞게 박스 내부 여백 축소 */
         border-radius: 20px;
     }
 
@@ -2130,6 +2086,13 @@ body {
     .site-footer .inner.site-footer__inner {
         padding: 40px 20px;
         box-sizing: border-box;
+    }
+
+    .scroll-top-btn {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
     }
 }
 

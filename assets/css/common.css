@@ -82,7 +82,6 @@ body {
     font-size: 16px;
 }
 
-/* 디자인 토큰 — 유틸리티 클래스 색상과 동일 팔레트(섹션/폼 등에서 var()로 참조) */
 :root {
     --color-surface: #ffffff;
     --color-cta-section-bg: #f4f6f8;
