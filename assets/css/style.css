@@ -834,7 +834,6 @@ body {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -901,19 +900,56 @@ body {
     background-color: #B41D1D;
 }
 
-.sec04-row-new {
-    animation: sec04RowPop 1200ms ease-out;
+/* 신규 행: 한 줄 전체가 동시에 아래→위로 슬라이드(열 순차 딜레이 없음 = 좌→우 채움 느낌 제거) */
+.sec04-row-new td {
+    position: relative;
+    animation: sec04BlockRise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes sec04RowPop {
-    from {
-        transform: translateY(6px);
-        background-color: rgba(34, 197, 151, 0.10);
+.sec04-row-new .status-badge {
+    animation: none;
+}
+
+@keyframes sec04BlockRise {
+    0% {
+        opacity: 0;
+        transform: translateY(calc(100% + 10px));
+        background-color: rgba(34, 197, 151, 0.2);
     }
 
-    to {
+    55% {
+        opacity: 1;
+        transform: translateY(0);
+        background-color: rgba(34, 197, 151, 0.1);
+    }
+
+    100% {
+        opacity: 1;
         transform: translateY(0);
         background-color: transparent;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sec04-row-new td {
+        animation-name: sec04CellEnterReduced;
+        animation-duration: 0.45s;
+        animation-delay: 0s !important;
+        animation-timing-function: ease-out;
+    }
+
+    .sec04-row-new .status-badge {
+        animation: none;
+    }
+
+    @keyframes sec04CellEnterReduced {
+        0% {
+            background-color: rgba(34, 197, 151, 0.28);
+        }
+
+        100% {
+            background-color: transparent;
+        }
     }
 }
 
@@ -1012,23 +1048,24 @@ body {
     grid-template-rows: 1fr;
 }
 
+/* 바깥은 패딩 없음(0fr 접힘), 패딩은 .faq-content-inner */
 .faq-content {
     min-height: 0;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0;
     background-color: #fcfcfc;
-    transition: padding 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
-    line-height: 1.6;
-    word-break: keep-all;
-    overflow-wrap: break-word;
 }
 
-.faq-item.active .faq-content {
+.faq-content-inner {
+    box-sizing: border-box;
     padding-top: var(--faq-answer-pt);
     padding-right: var(--faq-answer-pr);
     padding-bottom: var(--faq-answer-pb);
     padding-left: var(--faq-answer-pl);
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .faq-item.active .arrow img {
@@ -1036,8 +1073,7 @@ body {
 }
 
 /* 답변 문단 들여쓰기(약 100px) */
-.faq-content>p {
-    padding-left: var(--faq-answer-indent);
+.faq-content-inner > p {
     word-break: keep-all;
     line-height: 1.6;
 }
@@ -1994,12 +2030,12 @@ body {
     }
 
     /* 모바일 여백 무효화 */
-    .faq-content .mg-left-100 {
+    .faq-content-inner .mg-left-100 {
         margin-left: 0;
         padding-top: 15px;
     }
 
-    .faq-content>p {
+    .faq-content-inner > p {
         padding-left: var(--faq-answer-indent);
     }
 

@@ -252,6 +252,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function clearNewRowClassLater(row) {
+        const ms = mqReducedMotion.matches ? 480 : 920;
+        window.setTimeout(() => {
+            row.classList.remove("sec04-row-new");
+        }, ms);
+    }
+
     function pushRealtimeRow() {
         const now = new Date();
         const row = makeRow(
@@ -269,6 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
         while (tbody.children.length > maxRows) {
             tbody.removeChild(tbody.lastElementChild);
         }
+
+        clearNewRowClassLater(row);
     }
 
     seedInitialRows();
@@ -293,6 +302,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const FAQ_DEFAULT_ANSWER =
         "A. 전혀 다르지 않습니다! 인터넷 품질, A/S, 매월 납부하는 요금은 통신 3사(SK, KT, LG) 본사와 100% 동일합니다. 정직한 인터넷은 본사와 똑같은 상품에 '최대 현금 사은품'이라는 추가 혜택만 더 챙겨드리는 것입니다.";
 
+    function ensureFaqContentInner(content) {
+        if (!content || content.querySelector(":scope > .faq-content-inner")) return;
+        const inner = document.createElement("div");
+        inner.className = "faq-content-inner";
+        while (content.firstChild) {
+            inner.appendChild(content.firstChild);
+        }
+        content.appendChild(inner);
+    }
+
     function ensureFaqPanelStructure(item) {
         let panel = item.querySelector(":scope > .faq-panel");
         let content = item.querySelector(".faq-content");
@@ -307,15 +326,20 @@ document.addEventListener("DOMContentLoaded", () => {
             panel.className = "faq-panel";
             content = document.createElement("div");
             content.className = "faq-content";
-            content.innerHTML = '<p class="body-font-2 mg-left-100 main-color"></p>';
+            content.innerHTML =
+                '<div class="faq-content-inner"><p class="body-font-2 mg-left-100 main-color"></p></div>';
             panel.appendChild(content);
             item.appendChild(panel);
         } else if (panel && !content) {
             content = document.createElement("div");
             content.className = "faq-content";
-            content.innerHTML = '<p class="body-font-2 mg-left-100 main-color"></p>';
+            content.innerHTML =
+                '<div class="faq-content-inner"><p class="body-font-2 mg-left-100 main-color"></p></div>';
             panel.appendChild(content);
         }
+
+        content = item.querySelector(".faq-content");
+        ensureFaqContentInner(content);
 
         return { panel: item.querySelector(":scope > .faq-panel"), content: item.querySelector(".faq-content") };
     }
