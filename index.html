@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정직한인터넷</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -391,12 +392,14 @@
                 <p class="body-font-2 main-color">자주 묻는 질문</p>
             </div>
             <div class="faq-wrap mg-bottom-200">
-                <div class="faq-item active">
-                    <div class="faq-title d-flex" role="button" tabindex="0" aria-expanded="true" aria-controls="faq-panel-1" id="faq-trigger-1">
-                        <span class="ft-28 main-greenColor">Q. 통신사 본사에서 가입하는 것과 인터넷 품질이나 요금이 다른가요?</span>
-                        <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
-                    </div>
-                    <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1" aria-hidden="false">
+                <div id="faq-accordion">
+                    <h3>
+                        <span class="faq-header-inner d-flex">
+                            <span class="ft-28 main-greenColor">Q. 통신사 본사에서 가입하는 것과 인터넷 품질이나 요금이 다른가요?</span>
+                            <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
+                        </span>
+                    </h3>
+                    <div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
                                 <p class="body-font-2 mg-left-100 main-color">
@@ -406,14 +409,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="faq-item">
-                    <div class="faq-title d-flex" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
-                        <span class="ft-28 main-greenColor">Q. 최대 47만 원 현금 사은품은 정말 당일에 입금되나요?</span>
-                        <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
+                    <h3>
+                        <span class="faq-header-inner d-flex">
+                            <span class="ft-28 main-greenColor">Q. 최대 47만 원 현금 사은품은 정말 당일에 입금되나요?</span>
+                            <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
+                        </span>
+                    </h3>
+                    <div>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                <p class="body-font-2 mg-left-100 main-color"></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2" aria-hidden="true">
+
+                    <h3>
+                        <span class="faq-header-inner d-flex">
+                            <span class="ft-28 main-greenColor">Q. 기존에 쓰던 통신사 위약금이 남아있는데 어떡하죠?</span>
+                            <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
+                        </span>
+                    </h3>
+                    <div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
                                 <p class="body-font-2 mg-left-100 main-color"></p>
@@ -421,21 +438,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-title d-flex" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
-                        <span class="ft-28 main-greenColor">Q. 기존에 쓰던 통신사 위약금이 남아있는데 어떡하죠?</span>
-                        <span class="arrow"><img src="assets/images/icon/down.svg" alt=""></span>
-                    </div>
-                    <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3" aria-hidden="true">
-                        <div class="faq-content">
-                            <div class="faq-content-inner">
-                                <p class="body-font-2 mg-left-100 main-color"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             <div class="sec06-footer text-center">
@@ -578,6 +580,8 @@
         <span aria-hidden="true">↑</span>
     </button>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

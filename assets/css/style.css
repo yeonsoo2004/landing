@@ -26,8 +26,7 @@ body {
         animation: none;
     }
 
-    .faq-panel,
-    .faq-content {
+    #faq-accordion .ui-accordion-content {
         transition-duration: 0.01ms;
     }
 
@@ -1002,53 +1001,79 @@ body {
     border-top: 2px solid #22c597;
 }
 
-/* 개별 FAQ 항목 */
-.faq-item {
-    border-top: none;
-    border-bottom: 1px solid #22c597;
+/* jQuery UI Accordion — base 테마는 CDN, 아래에서 레이아웃·색만 맞춤 */
+#faq-accordion.ui-accordion {
+    padding: 0;
 }
 
-/* 질문(Q) 제목 영역 */
-.faq-title {
+#faq-accordion .ui-accordion-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
     padding: 30px 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #22c597;
+    border-radius: 0 !important;
+    background: #ffffff;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+#faq-accordion .ui-accordion-header.ui-state-hover,
+#faq-accordion .ui-accordion-header.ui-state-focus,
+#faq-accordion .ui-accordion-header.ui-state-active {
+    background: #ffffff;
+    color: inherit;
+    border-color: #22c597;
+}
+
+#faq-accordion .faq-header-inner {
+    flex: 1;
+    min-width: 0;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     gap: 16px;
 }
 
-.faq-title>span.ft-28 {
+#faq-accordion .faq-header-inner > .ft-28 {
     flex: 1;
     min-width: 0;
 }
 
-.faq-title .arrow {
+#faq-accordion .ui-accordion-header .arrow {
     flex-shrink: 0;
-}
-
-.arrow {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.arrow img {
+#faq-accordion .ui-accordion-header .arrow img {
     width: 24px;
     height: auto;
     transition: transform 0.3s ease;
 }
 
-.faq-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+#faq-accordion .ui-accordion-header.ui-state-active .arrow img {
+    transform: rotate(180deg);
 }
 
-.faq-item.active .faq-panel {
-    grid-template-rows: 1fr;
+#faq-accordion .ui-accordion-content {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #22c597;
+    border-radius: 0 !important;
+    overflow: hidden;
+    background-color: #fcfcfc;
 }
 
-/* 바깥은 패딩 없음(0fr 접힘), 패딩은 .faq-content-inner */
+/* 바깥은 패딩 없음, 패딩은 .faq-content-inner */
 .faq-content {
     min-height: 0;
     overflow: hidden;
@@ -1068,14 +1093,21 @@ body {
     overflow-wrap: break-word;
 }
 
-.faq-item.active .arrow img {
-    transform: rotate(180deg);
-}
-
 /* 답변 문단 들여쓰기(약 100px) */
 .faq-content-inner > p {
     word-break: keep-all;
     line-height: 1.6;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow img {
+    width: 24px;
+    height: auto;
 }
 
 /* =========================================
@@ -1562,7 +1594,7 @@ body {
         --faq-answer-indent: 84px;
     }
 
-    .faq-title {
+    #faq-accordion .ui-accordion-header {
         padding: 26px 16px;
     }
 }
@@ -2013,18 +2045,18 @@ body {
         --faq-answer-indent: min(72px, 14vw);
     }
 
-    .faq-title {
+    #faq-accordion .ui-accordion-header {
         padding: 20px 10px;
     }
 
-    .faq-title .ft-28 {
+    #faq-accordion .faq-header-inner .ft-28 {
         width: auto;
         flex: 1;
         min-width: 0;
         word-break: keep-all;
     }
 
-    .arrow img,
+    #faq-accordion .ui-accordion-header .arrow img,
     .arrow-down img {
         width: 16px;
     }
@@ -2204,7 +2236,7 @@ body {
         --faq-answer-indent: min(56px, 13vw);
     }
 
-    .faq-title {
+    #faq-accordion .ui-accordion-header {
         padding: 18px 10px;
     }
 

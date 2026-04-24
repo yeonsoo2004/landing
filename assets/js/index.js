@@ -297,89 +297,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ------------------------------
-    // Section 06 FAQ — CSS Grid(0fr/1fr) 패널 + 클래스 토글만 (WAAPI/높이 픽셀 계산 제거)
+    // Section 06 FAQ — jQuery UI Accordion
     // ------------------------------
     const FAQ_DEFAULT_ANSWER =
         "A. 전혀 다르지 않습니다! 인터넷 품질, A/S, 매월 납부하는 요금은 통신 3사(SK, KT, LG) 본사와 100% 동일합니다. 정직한 인터넷은 본사와 똑같은 상품에 '최대 현금 사은품'이라는 추가 혜택만 더 챙겨드리는 것입니다.";
 
-    function ensureFaqContentInner(content) {
-        if (!content || content.querySelector(":scope > .faq-content-inner")) return;
-        const inner = document.createElement("div");
-        inner.className = "faq-content-inner";
-        while (content.firstChild) {
-            inner.appendChild(content.firstChild);
-        }
-        content.appendChild(inner);
-    }
+    if (typeof window.jQuery !== "undefined" && typeof window.jQuery.fn.accordion === "function") {
+        window.jQuery(function ($) {
+            const $acc = $("#faq-accordion");
+            if (!$acc.length) return;
 
-    function ensureFaqPanelStructure(item) {
-        let panel = item.querySelector(":scope > .faq-panel");
-        let content = item.querySelector(".faq-content");
+            $acc.find(".faq-content-inner p").each(function fillEmptyFaqAnswer() {
+                if (!this.innerHTML.trim()) {
+                    this.textContent = FAQ_DEFAULT_ANSWER;
+                }
+            });
 
-        if (!panel && content) {
-            panel = document.createElement("div");
-            panel.className = "faq-panel";
-            content.replaceWith(panel);
-            panel.appendChild(content);
-        } else if (!panel && !content) {
-            panel = document.createElement("div");
-            panel.className = "faq-panel";
-            content = document.createElement("div");
-            content.className = "faq-content";
-            content.innerHTML =
-                '<div class="faq-content-inner"><p class="body-font-2 mg-left-100 main-color"></p></div>';
-            panel.appendChild(content);
-            item.appendChild(panel);
-        } else if (panel && !content) {
-            content = document.createElement("div");
-            content.className = "faq-content";
-            content.innerHTML =
-                '<div class="faq-content-inner"><p class="body-font-2 mg-left-100 main-color"></p></div>';
-            panel.appendChild(content);
-        }
-
-        content = item.querySelector(".faq-content");
-        ensureFaqContentInner(content);
-
-        return { panel: item.querySelector(":scope > .faq-panel"), content: item.querySelector(".faq-content") };
-    }
-
-    function syncFaqItemAccessibility(item, isOpen) {
-        const title = item.querySelector(".faq-title");
-        const panel = item.querySelector(":scope > .faq-panel");
-        if (title) title.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        if (panel) panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
-    }
-
-    document.querySelectorAll(".faq-item").forEach((item) => {
-        const title = item.querySelector(".faq-title");
-        if (!title) return;
-
-        const { content } = ensureFaqPanelStructure(item);
-        const p = content?.querySelector("p");
-        if (p && !p.innerHTML.trim()) {
-            p.textContent = FAQ_DEFAULT_ANSWER;
-        }
-
-        if (!title.hasAttribute("role")) title.setAttribute("role", "button");
-        if (!title.hasAttribute("tabindex")) title.setAttribute("tabindex", "0");
-
-        syncFaqItemAccessibility(item, item.classList.contains("active"));
-
-        function toggle() {
-            const next = !item.classList.contains("active");
-            item.classList.toggle("active", next);
-            syncFaqItemAccessibility(item, next);
-        }
-
-        title.addEventListener("click", toggle);
-        title.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                toggle();
-            }
+            $acc.accordion({
+                heightStyle: "content",
+                collapsible: true,
+                active: 0,
+                icons: false,
+            });
         });
-    });
+    }
 
     // ------------------------------
     // CTA 섹션: 전체 동의 ↔ 필수 약관 양방향 연동
