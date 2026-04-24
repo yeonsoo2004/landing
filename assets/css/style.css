@@ -2067,10 +2067,6 @@ body {
         padding-top: 15px;
     }
 
-    .faq-content-inner > p {
-        padding-left: var(--faq-answer-indent);
-    }
-
     .section-cta {
         padding: 56px 0 80px;
     }
